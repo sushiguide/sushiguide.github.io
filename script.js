@@ -10,10 +10,10 @@ const i18n = {
     empty:"Нічого не знайдено",
     scoreTitle:"Що таке Оцінка?",
     scoreDesc:"Загальний бал зі 100. Ваги нерівні — смак важливіший за все інше. Система адаптована під реалії Хмельницького (переважно самовивіз + гібриди піца/суші).",
-    axisA:"Смак", axisAdesc:"риба + рис + загальний смак",
-    axisB:"Цінність і чесність", axisBdesc:"ціна за 100 г + реальна вага + кількість лосося",
-    axisC:"Формат", axisCdesc:"наскільки заклад спеціалізується на суші",
-    axisD:"Сервіс і надійність", axisDdesc:"обслуговування + час + пакування",
+    axisA:"Смак", axisAShort:"Смак", axisAdesc:"риба + рис + загальний смак",
+    axisB:"Цінність і чесність", axisBShort:"Цінність", axisBdesc:"ціна за 100 г + реальна вага + кількість лосося",
+    axisC:"Формат", axisCShort:"Формат", axisCdesc:"наскільки заклад спеціалізується на суші",
+    axisD:"Сервіс і надійність", axisDShort:"Сервіс", axisDdesc:"обслуговування + час + пакування",
     axisE:"Надійність/якість доставки", axisEShort:"Доставка", axisEdesc:"як роли переносять дорогу",
     methodNote:"Дані зібрані особисто (травень–липень 2026). Основний тест — Філадельфія з лососем. Більшість замовлень — самовивіз.",
     footerTitle:"Суші Гід Хмельницький",
@@ -34,10 +34,10 @@ const i18n = {
     empty:"Nothing found",
     scoreTitle:"What is the Score?",
     scoreDesc:"A total score out of 100. Weights are intentional — taste matters most. Adapted to Khmelnytskyi reality (mostly pickup + pizza/sushi hybrids).",
-    axisA:"Taste", axisAdesc:"fish + rice + overall taste",
-    axisB:"Value & Honesty", axisBdesc:"price per 100 g + real weight + salmon amount",
-    axisC:"Format", axisCdesc:"how much the place focuses on sushi",
-    axisD:"Service & Reliability", axisDdesc:"service + wait time + packaging",
+    axisA:"Taste", axisAShort:"Taste", axisAdesc:"fish + rice + overall taste",
+    axisB:"Value & Honesty", axisBShort:"Value", axisBdesc:"price per 100 g + real weight + salmon amount",
+    axisC:"Format", axisCShort:"Format", axisCdesc:"how much the place focuses on sushi",
+    axisD:"Service & Reliability", axisDShort:"Service", axisDdesc:"service + wait time + packaging",
     axisE:"Reliability / Travel Quality", axisEShort:"Delivery", axisEdesc:"how well the rolls survive the trip",
     methodNote:"Data collected personally (May–July 2026). Main test item — Philadelphia with salmon. Most orders were pickup.",
     footerTitle:"Khmelnytskyi Sushi Guide",
@@ -109,10 +109,10 @@ function render(data){
         ${p.incomplete ? `<span class="bg-orange-100 text-orange-700 text-xs font-medium px-2 py-0.5 rounded-full border border-orange-200">${i18n[lang].incomplete}</span>` : ''}
       </div>
       <div class="grid grid-cols-5 gap-2 text-center text-xs mb-4">
-        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisA}"><div class="font-semibold">${p.a ?? '—'}</div><div class="text-zinc-500">${i18n[lang].taste}</div></div>
-        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisB}"><div class="font-semibold">${p.b ?? '—'}</div><div class="text-zinc-500">${i18n[lang].value}</div></div>
-        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisC}"><div class="font-semibold">${p.c ?? '—'}</div><div class="text-zinc-500">${i18n[lang].format}</div></div>
-        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisD}"><div class="font-semibold">${p.d ?? '—'}</div><div class="text-zinc-500">${i18n[lang].service}</div></div>
+        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisA}"><div class="font-semibold">${p.a ?? '—'}</div><div class="text-zinc-500">${i18n[lang].axisAShort}</div></div>
+        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisB}"><div class="font-semibold">${p.b ?? '—'}</div><div class="text-zinc-500">${i18n[lang].axisBShort}</div></div>
+        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisC}"><div class="font-semibold">${p.c ?? '—'}</div><div class="text-zinc-500">${i18n[lang].axisCShort}</div></div>
+        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisD}"><div class="font-semibold">${p.d ?? '—'}</div><div class="text-zinc-500">${i18n[lang].axisDShort}</div></div>
         <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisE}"><div class="font-semibold">${p.e ?? '—'}</div><div class="text-zinc-500">${i18n[lang].axisEShort}</div></div>
       </div>
       <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-zinc-500 mb-4">
@@ -143,10 +143,10 @@ function openM(i){
       <div class="text-sm text-zinc-500">Оцінка / 100</div>
     </div>
     <div class="space-y-3 mb-5 text-sm">
-      <div><div class="flex justify-between mb-1"><span>${i18n[lang].axisA}</span><b>${p.a ?? '—'}/40</b></div><div class="bar"><div class="bg-green-500" style="width:${(p.a||0)/40*100}%"></div></div></div>
-      <div><div class="flex justify-between mb-1"><span>${i18n[lang].axisB}</span><b>${p.b ?? '—'}/25</b></div><div class="bar"><div class="bg-blue-500" style="width:${(p.b||0)/25*100}%"></div></div></div>
-      <div><div class="flex justify-between mb-1"><span>${i18n[lang].axisC}</span><b>${p.c ?? '—'}/15</b></div><div class="bar"><div class="bg-purple-500" style="width:${(p.c||0)/15*100}%"></div></div></div>
-      <div><div class="flex justify-between mb-1"><span>${i18n[lang].axisD}</span><b>${p.d ?? '—'}/12</b></div><div class="bar"><div class="bg-amber-500" style="width:${(p.d||0)/12*100}%"></div></div></div>
+      <div><div class="flex justify-between mb-1"><span>${i18n[lang].axisAShort}</span><b>${p.a ?? '—'}/40</b></div><div class="bar"><div class="bg-green-500" style="width:${(p.a||0)/40*100}%"></div></div></div>
+      <div><div class="flex justify-between mb-1"><span>${i18n[lang].axisBShort}</span><b>${p.b ?? '—'}/25</b></div><div class="bar"><div class="bg-blue-500" style="width:${(p.b||0)/25*100}%"></div></div></div>
+      <div><div class="flex justify-between mb-1"><span>${i18n[lang].axisCShort}</span><b>${p.c ?? '—'}/15</b></div><div class="bar"><div class="bg-purple-500" style="width:${(p.c||0)/15*100}%"></div></div></div>
+      <div><div class="flex justify-between mb-1"><span>${i18n[lang].axisDShort}</span><b>${p.d ?? '—'}/12</b></div><div class="bar"><div class="bg-amber-500" style="width:${(p.d||0)/12*100}%"></div></div></div>
       <div><div class="flex justify-between mb-1"><span>${i18n[lang].axisEShort}</span><b>${p.e ?? '—'}/8</b></div><div class="bar"><div class="bg-rose-500" style="width:${(p.e||0)/8*100}%"></div></div></div>
     </div>
     <div class="grid grid-cols-2 gap-2 text-sm mb-4">
