@@ -154,7 +154,6 @@ function openM(i){
       <div class="bg-zinc-50 rounded-lg p-2 text-center"><div class="font-bold">${p.priceGram ? (p.priceGram*100).toFixed(0) : '—'}</div><div class="text-xs text-zinc-500">₴/100г</div></div>
       <div class="bg-zinc-50 rounded-lg p-2 text-center"><div class="font-bold">${p.rating}</div><div class="text-xs text-zinc-500">${i18n[lang].yourRating}</div></div>
     </div>
-    ${p.comment ? `<div class="bg-zinc-50 rounded-xl p-4 text-sm"><div class="font-semibold mb-1">${i18n[lang].comment}</div><p class="text-zinc-700">${p.comment}</p></div>` : ''}
     ${p.link ? `<a href="${p.link}" target="_blank" class="mt-4 inline-block text-red-600 font-medium text-sm">${i18n[lang].openMenu}</a>` : ''}
   `;
   document.getElementById("modal").classList.add("active");
