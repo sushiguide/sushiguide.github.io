@@ -108,11 +108,12 @@ function render(data){
         ${badge(p.rec)}
         ${p.incomplete ? `<span class="bg-orange-100 text-orange-700 text-xs font-medium px-2 py-0.5 rounded-full border border-orange-200">${i18n[lang].incomplete}</span>` : ''}
       </div>
-      <div class="grid grid-cols-4 gap-2 text-center text-xs mb-4">
-        <div class="bg-zinc-50 rounded-lg py-1.5" title="Смак / Taste"><div class="font-semibold">${p.a ?? '—'}</div><div class="text-zinc-500">${i18n[lang].taste}</div></div>
-        <div class="bg-zinc-50 rounded-lg py-1.5" title="Цінність / Value"><div class="font-semibold">${p.b ?? '—'}</div><div class="text-zinc-500">${i18n[lang].value}</div></div>
-        <div class="bg-zinc-50 rounded-lg py-1.5" title="Формат закладу"><div class="font-semibold">${p.c ?? '—'}</div><div class="text-zinc-500">${i18n[lang].format}</div></div>
-        <div class="bg-zinc-50 rounded-lg py-1.5" title="Сервіс"><div class="font-semibold">${(p.d||0)+(p.e||0)}</div><div class="text-zinc-500">${i18n[lang].service}</div></div>
+      <div class="grid grid-cols-5 gap-2 text-center text-xs mb-4">
+        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisA}"><div class="font-semibold">${p.a ?? '—'}</div><div class="text-zinc-500">${i18n[lang].taste}</div></div>
+        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisB}"><div class="font-semibold">${p.b ?? '—'}</div><div class="text-zinc-500">${i18n[lang].value}</div></div>
+        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisC}"><div class="font-semibold">${p.c ?? '—'}</div><div class="text-zinc-500">${i18n[lang].format}</div></div>
+        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisD}"><div class="font-semibold">${p.d ?? '—'}</div><div class="text-zinc-500">${i18n[lang].service}</div></div>
+        <div class="bg-zinc-50 rounded-lg py-1.5" title="${i18n[lang].axisE}"><div class="font-semibold">${p.e ?? '—'}</div><div class="text-zinc-500">${i18n[lang].axisE}</div></div>
       </div>
       <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-zinc-500 mb-4">
         <span title="Особистий рейтинг"><i class="fa-solid fa-star text-amber-400"></i> ${p.rating}/10</span>
