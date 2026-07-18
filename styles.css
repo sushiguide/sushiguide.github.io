@@ -1,0 +1,13 @@
+body{font-family:system-ui,sans-serif}
+  .card-hover{transition:all .25s}
+  .card-hover:hover{transform:translateY(-3px);box-shadow:0 12px 24px -8px rgba(0,0,0,.15)}
+  .rec-yes{border-left:4px solid #16a34a}
+  .rec-maybe{border-left:4px solid #ca8a04}
+  .rec-no{border-left:4px solid #dc2626}
+  .modal{display:none}
+  .modal.active{display:flex}
+  .bar{height:8px;border-radius:99px;background:#e5e7eb;overflow:hidden}
+  .bar>div{height:100%;border-radius:99px}
+  .lang-btn{transition:all .15s}
+  .lang-btn.active{background:#18181b;color:white}
+  .incomplete{opacity:0.85}
