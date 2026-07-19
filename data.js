@@ -19,7 +19,7 @@ const places = [
     "d": 11,
     "e": 8,
     "comment": "Багато рису, солений лосось",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.19
   },
   {
@@ -65,7 +65,7 @@ const places = [
     "d": 10,
     "e": 8,
     "comment": "Одні з найбільших ролів. Ідеальне пакування, соєвий соус в пляшечці. Великі,товсті шматки ніжного лосося преміум якості, з прожилками жиру. Лосось має сильний приємний запах. Заправлений рис з з кисло-солодкуватим смаком, кількість лосося  невелика порівняно з лососем. Крем-сир густий, має виражений, приємний вершковий смак. Огірок дрібно нарізаний, свіжий. Соєвий соус солоний з приємним післясмаком. Роли дуже добре збалансовані і в комбінації смачні. Інгредієнти не перебивають один одного.",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.17
   },
   {
@@ -88,7 +88,7 @@ const places = [
     "d": 10,
     "e": 6,
     "comment": "",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.17
   },
   {
@@ -157,7 +157,7 @@ const places = [
     "d": 7,
     "e": 0,
     "comment": "риба норм, крем сир смачний. разом в сушах чути тільки кремсир",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.15
   },
   {
@@ -249,7 +249,7 @@ const places = [
     "d": 8,
     "e": 4,
     "comment": "",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.15
   },
   {
@@ -295,7 +295,7 @@ const places = [
     "d": 11,
     "e": 8,
     "comment": "Багато риби,непогані на смак, трохи не тримають форму (можливо через спеку)",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.15
   },
   {
@@ -364,7 +364,7 @@ const places = [
     "d": 11,
     "e": 8,
     "comment": "Дофіга рису, мало риби",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.15
   },
   {
@@ -410,7 +410,7 @@ const places = [
     "d": 12,
     "e": 8,
     "comment": "",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.14
   },
   {
@@ -433,7 +433,7 @@ const places = [
     "d": 11,
     "e": 8,
     "comment": "Сирий рис, твердуватий. Риба дуже солена, смак\\запах майже як в копченого оселедця",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.14
   },
   {
@@ -502,7 +502,7 @@ const places = [
     "d": 8,
     "e": 6,
     "comment": "",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.14
   },
   {
@@ -571,7 +571,7 @@ const places = [
     "d": 9,
     "e": 4,
     "comment": "Суші дуже не акуратно скручені, багато рису. Лосося досить велика кількість але він майже не має смаку та запаху, розвалюється ще до того як почав їсти, при зважуванні",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.13
   },
   {
@@ -617,7 +617,7 @@ const places = [
     "d": 7,
     "e": 0,
     "comment": "",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.13
   },
   {
@@ -663,7 +663,7 @@ const places = [
     "d": 8,
     "e": 4,
     "comment": "Мало лосося, багато рису. Лосось смачний",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.13
   },
   {
@@ -732,7 +732,7 @@ const places = [
     "d": 10,
     "e": 6,
     "comment": "риба солонувата, без запаху. риби досить багато. В цілому суші смачні",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.11
   },
   {
@@ -801,7 +801,7 @@ const places = [
     "d": 11,
     "e": 8,
     "comment": "",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 4.11
   },
   {
@@ -939,7 +939,7 @@ const places = [
     "d": 9,
     "e": 4,
     "comment": "риба не має запаху чи смаку. крем сир не тримає форму. Рис дуже легко заправлений, попадались недоварені зерна, тверді. крем-сир не має вираженого смаку, загалом суші не дуже мають смак. Мало імбиря, багато соєвого соусу",
-    "incomplete": false,
+    "incomplete": true,
     "gtrust": 3.17
   },
   {
