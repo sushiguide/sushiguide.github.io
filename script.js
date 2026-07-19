@@ -94,7 +94,7 @@ function render(data){
   g.innerHTML=data.map((p,i)=>`
   <article class="card-hover bg-white rounded-xl border shadow-sm overflow-hidden ${cls(p.rec)} ${p.incomplete?'incomplete':''}">
     <div class="p-5">
-      <div class="flex justify-between gap-3 mb-2">
+      <div class="flex justify-between gap-3 mb-3">
         <div>
           <h3 class="font-bold text-lg leading-tight">${p.name}</h3>
           <div class="text-xs text-zinc-500 mt-0.5">${catMap[lang][p.cat] || p.cat}</div>
@@ -104,28 +104,28 @@ function render(data){
           <div class="text-[10px] text-zinc-400 uppercase tracking-wide">Оцінка</div>
         </div>
       </div>
-      <div class="mb-3 flex flex-wrap gap-1.5">
+      <div class="mb-3.5 flex flex-wrap gap-1.5">
         ${badge(p.rec)}
         ${p.incomplete ? `<span class="bg-orange-100 text-orange-700 text-xs font-medium px-2 py-0.5 rounded-full border border-orange-200">${i18n[lang].incomplete}</span>` : ''}
       </div>
       <div class="grid grid-cols-5 gap-1.5 text-center text-xs mb-4">
-        <div class="bg-zinc-50 rounded-lg py-1.5 px-0.5">
+        <div class="bg-zinc-50 rounded-lg py-2 px-0.5">
           <div class="font-semibold">${p.a ?? '—'}</div>
           <div class="text-zinc-500 text-[10px] leading-tight">${i18n[lang].axisAShort}</div>
         </div>
-        <div class="bg-zinc-50 rounded-lg py-1.5 px-0.5">
+        <div class="bg-zinc-50 rounded-lg py-2 px-0.5">
           <div class="font-semibold">${p.b ?? '—'}</div>
           <div class="text-zinc-500 text-[10px] leading-tight">${i18n[lang].axisBShort}</div>
         </div>
-        <div class="bg-zinc-50 rounded-lg py-1.5 px-0.5">
+        <div class="bg-zinc-50 rounded-lg py-2 px-0.5">
           <div class="font-semibold">${p.c ?? '—'}</div>
           <div class="text-zinc-500 text-[10px] leading-tight">${i18n[lang].axisCShort}</div>
         </div>
-        <div class="bg-zinc-50 rounded-lg py-1.5 px-0.5">
+        <div class="bg-zinc-50 rounded-lg py-2 px-0.5">
           <div class="font-semibold">${p.d ?? '—'}</div>
           <div class="text-zinc-500 text-[10px] leading-tight">${i18n[lang].axisDShort}</div>
         </div>
-        <div class="bg-zinc-50 rounded-lg py-1.5 px-0.5">
+        <div class="bg-zinc-50 rounded-lg py-2 px-0.5">
           <div class="font-semibold">${p.e ?? '—'}</div>
           <div class="text-zinc-500 text-[10px] leading-tight">${i18n[lang].axisEShort}</div>
         </div>
