@@ -92,7 +92,7 @@ function render(data){
   if(!data.length){g.innerHTML="";e.classList.remove("hidden");return}
   e.classList.add("hidden");
   g.innerHTML=data.map((p,i)=>`
-  <article class="card-hover bg-white rounded-xl border shadow-sm overflow-hidden ${cls(p.rec)} ${p.incomplete?'incomplete':''}">
+  <article class="card-hover bg-white rounded-xl border shadow-sm overflow-hidden max-w-[360px] ${cls(p.rec)} ${p.incomplete?'incomplete':''}">
     <div class="p-5">
       <div class="flex justify-between gap-3 mb-2">
         <div>
