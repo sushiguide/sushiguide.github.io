@@ -1,174 +1,125 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khmelnytskyi Sushi Guide</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<script async src="https://tally.so/widgets/embed.js"></script>
-
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Суші Гід Хмельницький — Незабаром</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .lang-btn {
+      transition: all 0.15s ease;
+    }
+    .lang-btn.active {
+      background: #18181b;
+      color: white;
+    }
+  </style>
 </head>
-<body class="bg-zinc-50 text-zinc-900">
-<header class="bg-zinc-900 text-white relative">
-  <div class="absolute top-4 right-4 flex gap-1 bg-zinc-800 rounded-lg p-1 text-sm z-10">
-    <button onclick="setLang('uk')" id="btn-uk" class="lang-btn active px-3 py-1 rounded-md">UA</button>
-    <button onclick="setLang('en')" id="btn-en" class="lang-btn px-3 py-1 rounded-md text-zinc-400">EN</button>
-  </div>
-  <div class="max-w-5xl mx-auto px-4 py-14 text-center">
-    <div class="inline-flex items-center gap-2 bg-red-600/20 text-red-400 text-sm font-medium px-3 py-1 rounded-full mb-5">
-      <i class="fa-solid fa-fish"></i> <span data-i18n="badge">Незалежна дегустація · 2026</span>
-    </div>
-    <h1 class="text-4xl md:text-5xl font-extrabold mb-4" data-i18n="mainTitle">Суші Гід Хмельницький</h1>
-    <p class="text-lg text-zinc-300 max-w-xl mx-auto" data-i18n="hero">Чесний гід по суші міста. Зважування, кількість лосося, ціна за 100 г та зважена оцінка за 5 критеріями.</p>
-  </div>
-</header>
+<body class="bg-zinc-50 text-zinc-900 min-h-screen flex flex-col">
 
-<div class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b shadow-sm">
-  <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap gap-2 items-center justify-between">
-    <div class="flex flex-wrap gap-2">
-      <select id="fRec" class="text-sm border rounded-lg px-3 py-2">
-        <option value="" data-i18n="allRec">Всі рекомендації</option>
-        <option value="Так" data-i18n="recYes">Рекомендую</option>
-        <option value="Якщо близько" data-i18n="recMaybe">Якщо близько</option>
-        <option value="Ні" data-i18n="recNo">Не рекомендую</option>
-      </select>
-      <select id="fCat" class="text-sm border rounded-lg px-3 py-2">
-        <option value="" data-i18n="allCat">Всі категорії</option>
-        <option value="Преміум" data-i18n="catPremium">Преміум</option>
-        <option value="Вище середнього" data-i18n="catAbove">Вище середнього</option>
-        <option value="Середній" data-i18n="catMid">Середній</option>
-        <option value="Бюджет" data-i18n="catBudget">Бюджет</option>
-      </select>
+  <!-- Header -->
+  <header class="bg-zinc-900 text-white relative">
+    <div class="absolute top-4 right-4 flex gap-1 bg-zinc-800 rounded-lg p-1 text-sm z-10">
+      <button onclick="setLang('uk')" id="btn-uk" class="lang-btn active px-3 py-1 rounded-md">UA</button>
+      <button onclick="setLang('en')" id="btn-en" class="lang-btn px-3 py-1 rounded-md text-zinc-400">EN</button>
     </div>
-    <select id="fSort" class="text-sm border rounded-lg px-3 py-2">
-      <option value="score-desc" data-i18n="sortScore">Оцінка ↓</option>
-      <option value="rating-desc" data-i18n="sortRating">Особистий рейтинг ↓</option>
-      <option value="pricegram-asc" data-i18n="sortPrice">Ціна/100г ↑</option>
-      <option value="fish-desc" data-i18n="sortFish">Риба ↓</option>
-    </select>
-  </div>
-</div>
 
-<main class="max-w-5xl mx-auto px-4 py-10">
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-    <div class="bg-white rounded-xl p-4 border text-center shadow-sm">
-      <div class="text-2xl font-bold" id="stTotal">0</div>
-      <div class="text-xs text-zinc-500" data-i18n="statPlaces">Закладів</div>
-    </div>
-    <div class="bg-white rounded-xl p-4 border text-center shadow-sm">
-      <div class="text-2xl font-bold text-green-600" id="stYes">0</div>
-      <div class="text-xs text-zinc-500" data-i18n="statYes">Рекомендую</div>
-    </div>
-    <div class="bg-white rounded-xl p-4 border text-center shadow-sm">
-      <div class="text-2xl font-bold text-amber-600" id="stMaybe">0</div>
-      <div class="text-xs text-zinc-500" data-i18n="statMaybe">Якщо близько</div>
-    </div>
-    <div class="bg-white rounded-xl p-4 border text-center shadow-sm">
-      <div class="text-2xl font-bold text-red-600" id="stNo">0</div>
-      <div class="text-xs text-zinc-500" data-i18n="statNo">Не рекомендую</div>
-    </div>
-  </div>
+    <div class="max-w-3xl mx-auto px-4 py-20 text-center">
+      <div class="inline-flex items-center gap-2 bg-red-600/20 text-red-400 text-sm font-medium px-3 py-1 rounded-full mb-6">
+        <i class="fa-solid fa-fish"></i>
+        <span data-i18n="badge">Незалежна дегустація · 2026</span>
+      </div>
 
-  <div id="grid" class="grid md:grid-cols-2 gap-5"></div>
-  <div id="empty" class="hidden text-center py-16 text-zinc-400" data-i18n="empty">Нічого не знайдено</div>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight" data-i18n="title">
+        Суші Гід Хмельницький
+      </h1>
 
-  <section class="mt-16 bg-white rounded-2xl p-6 md:p-8 border shadow-sm">
-    <h2 class="text-xl font-bold mb-2" data-i18n="scoreTitle">Що таке Оцінка? (Khmel Score)</h2>
-    <p class="text-sm text-zinc-600 mb-5" data-i18n="scoreDesc">
-      Загальний бал зі 100. Ваги нерівні — смак важливіший за все інше. Система адаптована під реалії Хмельницького (переважно самовивіз + гібриди піца/суші). 
-      Кожен бал прописаний чітко з еталонами та відхиленнями для максимальної об'єктивності та прозорості.
-    </p>
-    
-    <div class="space-y-4 text-sm">
-      <div>
-        <div class="flex justify-between items-center gap-4 font-semibold">
-          <span><b data-i18n="axisA">A. Смак та якість</b> — риба + рис + баланс інгредієнтів</span>
-          <span class="font-bold shrink-0">40</span>
-        </div>
-        <div class="ml-4 mt-1 text-xs text-zinc-600">
-          <strong>Еталон рола Філадельфія (35-40г):</strong> Рис 50-55%, Крем-сир 20-25%, Лосось 15-20%, Огірок 5-10%.<br>
-          <strong>Підпункти:</strong><br>
-          • Рис (8 балів): ідеальне приготування, текстура, кількість. -1 за липкість/сухість/відхилення.<br>
-          • Заправка рису (7 балів): баланс оцту/цукру/солі, приємний смак.<br>
-          • Лосось (10 балів): свіжість, колір, товщина, смак, кількість (ідеал 5-7г).<br>
-          • Крем-сир (8 балів): вершковий смак, текстура, кількість.<br>
-          • Огірок (4 бали): свіжість, кількість.<br>
-          • Баланс смаку (3 бали): гармонія, відхилення від еталону -1 за кожне >10%.<br>
-          <em>Приклад: Premium Sushi — хороші інгредієнти, але огірка забагато → баланс зруйновано, домінує огірок (знижено бали за баланс).</em>
-        </div>
+      <p class="text-lg text-zinc-300 max-w-xl mx-auto leading-relaxed" data-i18n="subtitle">
+        Чесний гід по суші міста. Зважування, кількість лосося, ціна за 100 г та зважена оцінка.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="flex-1 flex items-center justify-center px-4 py-16">
+    <div class="text-center max-w-lg">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-zinc-100 mb-8">
+        <i class="fa-solid fa-utensils text-3xl text-zinc-400"></i>
       </div>
-      
-      <div>
-        <div class="flex justify-between items-center gap-4 font-semibold">
-          <span><b data-i18n="axisB">B. Цінність і чесність</b> — ціна за 100 г + реальна вага + кількість лосося</span>
-          <span class="font-bold shrink-0">25</span>
-        </div>
-        <div class="ml-4 mt-1 text-xs text-zinc-600">
-          • Ціна vs якість (10 балів)<br>
-          • Чесність ваги (8 балів): -2 за кожні 5г недоваги<br>
-          • Кількість лосося vs ціна (7 балів)
-        </div>
-      </div>
-      
-      <div>
-        <div class="flex justify-between items-center gap-4 font-semibold">
-          <span><b data-i18n="axisC">C. Формат / Спеціалізація</b> — наскільки заклад спеціалізується на суші</span>
-          <span class="font-bold shrink-0">15</span>
-        </div>
-        <div class="ml-4 mt-1 text-xs text-zinc-600">
-          15: dedicated sushi або high-end Asian. 10-12: сильний фокус. 5-8: hybrid (піца+суші), але суші помітні. &lt;5: випадкові суші в загальному ресторані.<br>
-          <em>Спеціалізація важлива для послідовності якості, навіть якщо в гібридах іноді смачно.</em>
-        </div>
-      </div>
-      
-      <div>
-        <div class="flex justify-between items-center gap-4 font-semibold">
-          <span><b data-i18n="axisD">D. Сервіс і надійність</b> — обслуговування + час + пакування (надійність)</span>
-          <span class="font-bold shrink-0">12</span>
-        </div>
-        <div class="ml-4 mt-1 text-xs text-zinc-600">
-          • Час очікування (5 балів): &lt;10хв — 5, 10-15 — 4, 15-20 — 3, 20-30 — 2, &gt;30 — 1-0<br>
-          • Якість обслуговування (4 бали)<br>
-          • Надійність пакування (3 бали) — захищає від пошкоджень
-        </div>
-      </div>
-      
-      <div>
-        <div class="flex justify-between items-center gap-4 font-semibold">
-          <span><b data-i18n="axisE">E. Якість пакування та доставки</b> — як роли переносять дорогу</span>
-          <span class="font-bold shrink-0">8</span>
-        </div>
-        <div class="ml-4 mt-1 text-xs text-zinc-600">
-          <strong>Еталон (10 балів, але max 8 для критерію):</strong> Паперовий пакет з плоским дном + палички + соєвий соус в пляшечці + спеціальний контейнер/лоток для васабі, імбиря та соусу.<br>
-          <strong>Васабі та імбир:</strong> Пре-паковані якісні — повні бали (стандарт для доставки, практичні). Свіжі вручну — бонус (рідко для доставки). З консервантами/погані — -1-2.<br>
-          <strong>Відхилення:</strong> Пластиковий/целофановий пакет — -2. Пакет без плоского дна — -4 (ризики перевертання/деформації). Відсутність комплектації — -1-3.
-        </div>
+
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="coming">
+        Незабаром
+      </h2>
+
+      <p class="text-zinc-600 text-lg mb-8 leading-relaxed" data-i18n="desc">
+        Зараз я оновлюю систему оцінювання та збираю свіжі дані. Скоро тут з’явиться повний рейтинг закладів Хмельницького з детальними оцінками.
+      </p>
+
+      <div class="inline-flex items-center gap-2 text-sm text-zinc-500 bg-zinc-100 px-4 py-2 rounded-full">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <span data-i18n="status">В процесі оновлення</span>
       </div>
     </div>
-    
-    <p class="text-xs text-zinc-500 mt-5" data-i18n="methodNote">Дані зібрані особисто (травень–липень 2026). Основний тест — Філадельфія з лососем. Більшість замовлень — самовивіз. Кожен бал — з еталоном та чіткими відхиленнями для об'єктивності. Коментарі у форматі Плюси / Мінуси.</p>
-  </section>
-</main>
+  </main>
 
-<footer class="bg-zinc-900 text-zinc-400 py-8 mt-12 text-center text-sm">
-  <span data-i18n="footerTitle">Суші Гід Хмельницький</span> · <span data-i18n="footer"></span> · <a href="#tally-open=xX1kVE&tally-emoji-text=🍣&tally-emoji-animation=wave" data-i18n="suggestPlace" class="text-zinc-400 hover:text-zinc-200 transition-colors"></a>
-  <div class="mt-3 text-[10px] text-zinc-500">Останнє оновлення: 18 липня 2026</div>
-</footer>
-
-<div id="modal" class="modal fixed inset-0 z-50 items-center justify-center p-4 bg-black/60">
-  <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-    <div class="sticky top-0 bg-white border-b px-5 py-4 flex justify-between items-center">
-      <h3 id="mTitle" class="font-bold text-lg"></h3>
-      <button onclick="closeM()" class="text-2xl leading-none text-zinc-400">&times;</button>
+  <!-- Footer -->
+  <footer class="bg-zinc-900 text-zinc-400 py-8 text-center text-sm">
+    <div class="max-w-3xl mx-auto px-4">
+      <p data-i18n="footer">
+        Суші Гід Хмельницький · Незалежна дегустація
+      </p>
+      <p class="text-xs text-zinc-500 mt-2" data-i18n="note">
+        Дані збираються особисто. Без реклами.
+      </p>
     </div>
-    <div id="mBody" class="p-5"></div>
-  </div>
-</div>
+  </footer>
 
+  <script>
+    const i18n = {
+      uk: {
+        badge: "Незалежна дегустація · 2026",
+        title: "Суші Гід Хмельницький",
+        subtitle: "Чесний гід по суші міста. Зважування, кількість лосося, ціна за 100 г та зважена оцінка.",
+        coming: "Незабаром",
+        desc: "Зараз я оновлюю систему оцінювання та збираю свіжі дані. Скоро тут з’явиться повний рейтинг закладів Хмельницького з детальними оцінками.",
+        status: "В процесі оновлення",
+        footer: "Суші Гід Хмельницький · Незалежна дегустація",
+        note: "Дані збираються особисто. Без реклами."
+      },
+      en: {
+        badge: "Independent tasting · 2026",
+        title: "Khmelnytskyi Sushi Guide",
+        subtitle: "An honest sushi guide for the city. Weighing, salmon amount, price per 100 g and a weighted score.",
+        coming: "Coming Soon",
+        desc: "I'm currently updating the scoring system and collecting fresh data. A full ranking of Khmelnytskyi sushi places with detailed scores will appear here soon.",
+        status: "Update in progress",
+        footer: "Khmelnytskyi Sushi Guide · Independent tasting",
+        note: "Data collected personally. No ads."
+      }
+    };
 
-<script src="data.js"></script>
-<script src="script.js"></script>
+    let lang = "uk";
+
+    function setLang(l) {
+      lang = l;
+      document.getElementById("btn-uk").classList.toggle("active", l === "uk");
+      document.getElementById("btn-en").classList.toggle("active", l === "en");
+      document.getElementById("btn-uk").classList.toggle("text-zinc-400", l !== "uk");
+      document.getElementById("btn-en").classList.toggle("text-zinc-400", l !== "en");
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (i18n[l][key]) {
+          el.textContent = i18n[l][key];
+        }
+      });
+    }
+
+    setLang("uk");
+  </script>
 </body>
 </html>
