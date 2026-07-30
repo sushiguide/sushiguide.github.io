@@ -3,123 +3,260 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Суші Гід Хмельницький — Незабаром</title>
+  <title>Суші Гід Хмельницький · Khmel Score</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script async src="https://tally.so/widgets/embed.js"></script>
   <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-    }
-    .lang-btn {
-      transition: all 0.15s ease;
-    }
-    .lang-btn.active {
-      background: #18181b;
-      color: white;
-    }
+    body { font-family: system-ui, -apple-system, sans-serif; }
+    .card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+    .modal { display: none; }
+    .modal.open { display: flex; }
+    .bar { height: 6px; border-radius: 3px; background: #e5e7eb; overflow: hidden; }
+    .bar > div { height: 100%; border-radius: 3px; }
   </style>
 </head>
 <body class="bg-zinc-50 text-zinc-900 min-h-screen flex flex-col">
 
-  <!-- Header -->
-  <header class="bg-zinc-900 text-white relative">
-    <div class="absolute top-4 right-4 flex gap-1 bg-zinc-800 rounded-lg p-1 text-sm z-10">
-      <button onclick="setLang('uk')" id="btn-uk" class="lang-btn active px-3 py-1 rounded-md">UA</button>
-      <button onclick="setLang('en')" id="btn-en" class="lang-btn px-3 py-1 rounded-md text-zinc-400">EN</button>
+<!-- ========== HEADER (завжди) ========== -->
+<header class="bg-zinc-900 text-white">
+  <div class="max-w-6xl mx-auto px-4 py-14 text-center">
+    <div class="inline-flex items-center gap-2 bg-red-600/20 text-red-400 text-sm font-medium px-3 py-1 rounded-full mb-5">
+      <i class="fa-solid fa-fish"></i> Незалежна дегустація · 2026
     </div>
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Суші Гід Хмельницький</h1>
+    <p class="text-lg text-zinc-300 max-w-xl mx-auto">
+      Чесний гід по суші міста. Зважування, кількість лосося, ціна за 100 г та зважена оцінка за 5 критеріями.
+    </p>
+  </div>
+</header>
 
-    <div class="max-w-3xl mx-auto px-4 py-20 text-center">
-      <div class="inline-flex items-center gap-2 bg-red-600/20 text-red-400 text-sm font-medium px-3 py-1 rounded-full mb-6">
-        <i class="fa-solid fa-fish"></i>
-        <span data-i18n="badge">Незалежна дегустація · 2026</span>
-      </div>
+<!-- ========== CONTENT (підвантажується) ========== -->
+<div id="app" class="flex-1">
+  <div class="text-center py-20 text-zinc-400">Завантаження...</div>
+</div>
 
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight" data-i18n="title">
-        Суші Гід Хмельницький
-      </h1>
+<!-- ========== FOOTER (завжди) ========== -->
+<footer class="bg-zinc-900 text-zinc-400 py-8 text-center text-sm">
+  Суші Гід Хмельницький · Незалежна дегустація ·
+  <a href="#tally-open=xX1kVE&tally-emoji-text=🍣&tally-emoji-animation=wave"
+     class="text-zinc-400 hover:text-zinc-200 transition-colors">
+    Запропонувати новий заклад
+  </a>
+  <div class="mt-3 text-[10px] text-zinc-500">Останнє оновлення: 31 липня 2026</div>
+</footer>
 
-      <p class="text-lg text-zinc-300 max-w-xl mx-auto leading-relaxed" data-i18n="subtitle">
-        Чесний гід по суші міста. Зважування, кількість лосося, ціна за 100 г та зважена оцінка.
-      </p>
-    </div>
-  </header>
+<script>
+/* =====================================================
+   РЕЖИМ САЙТУ
+   Зміни на 'coming-soon' щоб показати заглушку
+   ===================================================== */
+const MODE = 'rating';   // 'rating' | 'coming-soon'
 
-  <!-- Main content -->
-  <main class="flex-1 flex items-center justify-center px-4 py-16">
-    <div class="text-center max-w-lg">
-      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-zinc-100 mb-8">
-        <i class="fa-solid fa-utensils text-3xl text-zinc-400"></i>
-      </div>
+/* ===================================================== */
 
-      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="coming">
-        Незабаром
-      </h2>
+let places = [];
 
-      <p class="text-zinc-600 text-lg mb-8 leading-relaxed" data-i18n="desc">
-        Зараз я оновлюю систему оцінювання та збираю свіжі дані. Скоро тут з’явиться повний рейтинг закладів Хмельницького з детальними оцінками.
-      </p>
+async function loadContent() {
+  const file = MODE === 'coming-soon'
+    ? 'content/coming-soon.html'
+    : 'content/rating.html';
 
-      <div class="inline-flex items-center gap-2 text-sm text-zinc-500 bg-zinc-100 px-4 py-2 rounded-full">
-        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-        <span data-i18n="status">В процесі оновлення</span>
-      </div>
-    </div>
-  </main>
+  try {
+    const res = await fetch(file);
+    if (!res.ok) throw new Error('Content not found');
+    const html = await res.text();
+    document.getElementById('app').innerHTML = html;
 
-  <!-- Footer -->
-  <footer class="bg-zinc-900 text-zinc-400 py-8 text-center text-sm">
-    <div class="max-w-3xl mx-auto px-4">
-      <p data-i18n="footer">
-        Суші Гід Хмельницький · Незалежна дегустація
-      </p>
-      <p class="text-xs text-zinc-500 mt-2" data-i18n="note">
-        Дані збираються особисто. Без реклами.
-      </p>
-    </div>
-  </footer>
-
-  <script>
-    const i18n = {
-      uk: {
-        badge: "Незалежна дегустація · 2026",
-        title: "Суші Гід Хмельницький",
-        subtitle: "Чесний гід по суші міста. Зважування, кількість лосося, ціна за 100 г та зважена оцінка.",
-        coming: "Незабаром",
-        desc: "Зараз я оновлюю систему оцінювання та збираю свіжі дані. Скоро тут з’явиться повний рейтинг закладів Хмельницького з детальними оцінками.",
-        status: "В процесі оновлення",
-        footer: "Суші Гід Хмельницький · Незалежна дегустація",
-        note: "Дані збираються особисто. Без реклами."
-      },
-      en: {
-        badge: "Independent tasting · 2026",
-        title: "Khmelnytskyi Sushi Guide",
-        subtitle: "An honest sushi guide for the city. Weighing, salmon amount, price per 100 g and a weighted score.",
-        coming: "Coming Soon",
-        desc: "I'm currently updating the scoring system and collecting fresh data. A full ranking of Khmelnytskyi sushi places with detailed scores will appear here soon.",
-        status: "Update in progress",
-        footer: "Khmelnytskyi Sushi Guide · Independent tasting",
-        note: "Data collected personally. No ads."
-      }
-    };
-
-    let lang = "uk";
-
-    function setLang(l) {
-      lang = l;
-      document.getElementById("btn-uk").classList.toggle("active", l === "uk");
-      document.getElementById("btn-en").classList.toggle("active", l === "en");
-      document.getElementById("btn-uk").classList.toggle("text-zinc-400", l !== "uk");
-      document.getElementById("btn-en").classList.toggle("text-zinc-400", l !== "en");
-
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (i18n[l][key]) {
-          el.textContent = i18n[l][key];
-        }
-      });
+    if (MODE === 'rating') {
+      await loadData();
+      bindFilters();
     }
+  } catch (e) {
+    document.getElementById('app').innerHTML = `
+      <div class="text-center py-20 text-red-500">
+        Не вдалося завантажити контент.<br>
+        <span class="text-sm text-zinc-400">${e.message}</span>
+      </div>`;
+  }
+}
 
-    setLang("uk");
-  </script>
+async function loadData() {
+  const res = await fetch('data.json');
+  places = await res.json();
+  render();
+}
+
+function scoreColor(s) {
+  if (s == null) return 'bg-zinc-200 text-zinc-500';
+  if (s >= 80) return 'bg-green-100 text-green-800';
+  if (s >= 65) return 'bg-lime-100 text-lime-800';
+  if (s >= 50) return 'bg-yellow-100 text-yellow-800';
+  return 'bg-red-100 text-red-800';
+}
+
+function recBadge(r) {
+  if (r === 'Так') return '<span class="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700">Рекомендую</span>';
+  if (r === 'Якщо близько') return '<span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Якщо близько</span>';
+  if (r === 'Ні') return '<span class="text-xs px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-500">Не рекомендую</span>';
+  return '';
+}
+
+function bar(val, max) {
+  if (val == null) return '<div class="bar"><div style="width:0%"></div></div>';
+  const pct = Math.min(100, (val / max) * 100);
+  return `<div class="bar"><div class="bg-green-500" style="width:${pct}%"></div></div>`;
+}
+
+function render() {
+  const searchEl = document.getElementById('search');
+  const recEl = document.getElementById('filterRec');
+  const catEl = document.getElementById('filterCat');
+  const sortEl = document.getElementById('sortBy');
+  if (!searchEl) return;
+
+  const q = searchEl.value.toLowerCase();
+  const rec = recEl.value;
+  const cat = catEl.value;
+  const sort = sortEl.value;
+
+  let list = places.filter(p => {
+    if (q && !p.name.toLowerCase().includes(q)) return false;
+    if (rec && p.recommend !== rec) return false;
+    if (cat && p.category !== cat) return false;
+    return true;
+  });
+
+  list.sort((a, b) => {
+    if (sort === 'name') return a.name.localeCompare(b.name, 'uk');
+    if (sort === 'price') return (a.price || 9999) - (b.price || 9999);
+    return (b.khmelScore || 0) - (a.khmelScore || 0);
+  });
+
+  document.getElementById('countLabel').textContent = `Показано ${list.length} з ${places.length} закладів`;
+
+  document.getElementById('grid').innerHTML = list.map(p => {
+    const score = p.khmelScore != null ? p.khmelScore.toFixed(0) : '—';
+    return `
+    <div class="card bg-white rounded-xl border p-4 cursor-pointer" onclick="openModal(${p.id})">
+      <div class="flex justify-between items-start mb-2">
+        <div>
+          <h3 class="font-bold text-base leading-tight">${p.name}</h3>
+          <div class="text-xs text-zinc-500 mt-0.5">${p.category || p.type || ''}</div>
+        </div>
+        <div class="text-right">
+          <div class="text-2xl font-extrabold ${scoreColor(p.khmelScore)} px-2 py-0.5 rounded-lg">${score}</div>
+          <div class="text-[10px] text-zinc-400 mt-0.5">Khmel Score</div>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        ${recBadge(p.recommend)}
+        ${p.price ? `<span class="text-xs px-2 py-0.5 rounded-full bg-zinc-100">${p.price} грн</span>` : ''}
+      </div>
+      <div class="grid grid-cols-5 gap-1 text-center text-[10px] text-zinc-500">
+        <div><div class="font-semibold text-zinc-800">${p.categories.A_taste?.toFixed(0) ?? '—'}</div>Смак</div>
+        <div><div class="font-semibold text-zinc-800">${p.categories.B_value?.toFixed(0) ?? '—'}</div>Цінність</div>
+        <div><div class="font-semibold text-zinc-800">${p.categories.C_completeness?.toFixed(1) ?? '—'}</div>Компл.</div>
+        <div><div class="font-semibold text-zinc-800">${p.categories.D_service?.toFixed(0) ?? '—'}</div>Сервіс</div>
+        <div><div class="font-semibold text-zinc-800">${p.categories.E_delivery?.toFixed(0) ?? '—'}</div>Пакет</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function openModal(id) {
+  const p = places.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('mTitle').textContent = p.name;
+  const s = p.scores;
+  document.getElementById('mBody').innerHTML = `
+    <div class="flex items-center gap-3 mb-4">
+      <div class="text-3xl font-extrabold ${scoreColor(p.khmelScore)} px-3 py-1 rounded-xl">
+        ${p.khmelScore != null ? p.khmelScore.toFixed(0) : '—'}
+      </div>
+      <div>
+        <div class="font-medium">Khmel Score</div>
+        <div class="text-sm text-zinc-500">${p.category} · ${p.type}</div>
+        <div class="mt-1">${recBadge(p.recommend)}</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3 text-sm mb-5">
+      <div class="bg-zinc-50 rounded-lg p-3">
+        <div class="text-zinc-500 text-xs">Ціна</div>
+        <div class="font-semibold">${p.price ? p.price + ' грн' : '—'}</div>
+      </div>
+      <div class="bg-zinc-50 rounded-lg p-3">
+        <div class="text-zinc-500 text-xs">Вага (факт / заявл.)</div>
+        <div class="font-semibold">${p.actualWeight ?? '—'} / ${p.declaredWeight ?? '—'} г</div>
+      </div>
+      <div class="bg-zinc-50 rounded-lg p-3">
+        <div class="text-zinc-500 text-xs">Ціна за 100 г</div>
+        <div class="font-semibold">${p.pricePer100g != null ? p.pricePer100g + ' грн' : '—'}</div>
+      </div>
+      <div class="bg-zinc-50 rounded-lg p-3">
+        <div class="text-zinc-500 text-xs">Лосось</div>
+        <div class="font-semibold">${p.salmonPct != null ? p.salmonPct + '%' : '—'} ${p.salmonG ? '(' + p.salmonG + ' г)' : ''}</div>
+      </div>
+    </div>
+
+    <h4 class="font-bold text-sm mb-2">Детальні оцінки</h4>
+    <div class="space-y-2 text-sm mb-5">
+      ${row('Рис', s.rice, 5)}
+      ${row('Заправка', s.seasoning, 3)}
+      ${row('Лосось', s.salmon, 7)}
+      ${row('Крем-сир', s.cream, 5)}
+      ${row('Огірок', s.cucumber, 4)}
+      ${row('Баланс', s.balance, 5)}
+      ${row('Смак загальний', s.taste, 11)}
+      ${row('Соєвий соус', s.soy, 2)}
+      ${row('Імбир', s.ginger, 1.5)}
+      ${row('Васабі', s.wasabi, 1.5)}
+      ${row('Ціна за 100 г', s.b_price, 10)}
+      ${row('Чесність ваги', s.b_honesty, 8)}
+      ${row('Кількість лосося', s.b_salmon, 12)}
+      ${row('Пакування', s.packaging, 10)}
+      ${row('Зручність замовлення', s.orderConvenience, 5)}
+      ${row('Обслуговування', s.service, 5)}
+      ${row('Час очікування', s.wait, 5)}
+    </div>
+
+    ${p.pros ? `<div class="mb-3"><div class="text-xs font-semibold text-green-700 mb-1">Плюси</div><div class="text-sm text-zinc-700">${p.pros}</div></div>` : ''}
+    ${p.cons ? `<div class="mb-3"><div class="text-xs font-semibold text-red-700 mb-1">Мінуси</div><div class="text-sm text-zinc-700">${p.cons}</div></div>` : ''}
+    ${p.menu ? `<a href="${p.menu}" target="_blank" class="inline-block mt-2 text-sm text-blue-600 hover:underline">Меню закладу →</a>` : ''}
+  `;
+  document.getElementById('modal').classList.add('open');
+}
+
+function row(label, val, max) {
+  const v = val != null ? val : '—';
+  return `<div class="flex items-center gap-2">
+    <div class="w-36 text-zinc-600 shrink-0">${label}</div>
+    <div class="flex-1">${bar(val, max)}</div>
+    <div class="w-10 text-right font-medium">${v}</div>
+  </div>`;
+}
+
+function closeModal() {
+  const m = document.getElementById('modal');
+  if (m) m.classList.remove('open');
+}
+
+function bindFilters() {
+  ['search', 'filterRec', 'filterCat', 'sortBy'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', render);
+      el.addEventListener('change', render);
+    }
+  });
+  document.addEventListener('click', e => {
+    if (e.target.id === 'modal') closeModal();
+  });
+}
+
+loadContent();
+</script>
 </body>
 </html>
