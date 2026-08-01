@@ -106,6 +106,12 @@ async function loadData() {
   render();
 }
 
+function getScore(p) {
+  // підтримка і нового score, і старого khmelScore
+  const s = p.score != null ? p.score : p.khmelScore;
+  return s != null ? Number(s) : null;
+}
+
 function scoreColor(s) {
   if (s == null) return 'bg-zinc-200 text-zinc-500';
   if (s >= 80) return 'bg-green-100 text-green-800';
@@ -149,13 +155,14 @@ function render() {
   list.sort((a, b) => {
     if (sort === 'name') return a.name.localeCompare(b.name, 'uk');
     if (sort === 'price') return (a.price || 9999) - (b.price || 9999);
-    return (b.score || 0) - (a.score || 0);
+    return (getScore(b) || 0) - (getScore(a) || 0);
   });
 
   document.getElementById('countLabel').textContent = `Показано ${list.length} з ${places.length} закладів`;
 
   document.getElementById('grid').innerHTML = list.map(p => {
-    const score = p.score != null ? p.score.toFixed(0) : '—';
+    const total = getScore(p);
+    const score = total != null ? total.toFixed(0) : '—';
     const a = p.categories.A_taste != null ? p.categories.A_taste.toFixed(0) : '—';
     const b = p.categories.B_value != null ? p.categories.B_value.toFixed(0) : '—';
     const c = p.categories.C_completeness != null ? p.categories.C_completeness.toFixed(1) : '—';
@@ -169,7 +176,7 @@ function render() {
           <div class="text-xs text-zinc-500 mt-1">${p.category || p.type || ''}</div>
         </div>
         <div class="text-right shrink-0">
-          <div class="text-3xl font-extrabold ${scoreColor(p.score)} px-2.5 py-1 rounded-xl">${score}</div>
+          <div class="text-3xl font-extrabold ${scoreColor(total)} px-2.5 py-1 rounded-xl">${score}</div>
           <div class="text-[10px] text-zinc-400 mt-0.5">з 100</div>
         </div>
       </div>
@@ -195,8 +202,8 @@ function openModal(id) {
   const cat = p.categories;
   document.getElementById('mBody').innerHTML = `
     <div class="flex items-center gap-3 mb-5">
-      <div class="text-4xl font-extrabold ${scoreColor(p.score)} px-3 py-1 rounded-xl">
-        ${p.score != null ? p.score.toFixed(0) : '—'}
+      <div class="text-4xl font-extrabold ${scoreColor(getScore(p))} px-3 py-1 rounded-xl">
+        ${getScore(p) != null ? getScore(p).toFixed(0) : '—'}
       </div>
       <div>
         <div class="font-medium text-lg">Оцінка</div>
