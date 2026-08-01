@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Суші Гід Хмельницький · Khmel Score</title>
+  <title>Суші Гід Хмельницький</title>
+  <meta name="description" content="Чесний рейтинг суші в Хмельницькому. Зважування, кількість лосося, ціна за 100 г та оцінка за 5 категоріями. Незалежна дегустація 2026.">
+  <meta name="theme-color" content="#18181b">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="Суші Гід Хмельницький">
+  <meta property="og:description" content="Чесний рейтинг суші в Хмельницькому. Зважування, кількість лосося, ціна за 100 г та оцінка за 5 категоріями.">
+  <meta property="og:site_name" content="Суші Гід Хмельницький">
+  <meta property="og:url" content="https://sushiguide.github.io/">
+  <!-- За бажанням додай зображення 1200×630: -->
+  <!-- <meta property="og:image" content="https://sushiguide.github.io/og-image.png"> -->
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Суші Гід Хмельницький">
+  <meta name="twitter:description" content="Чесний рейтинг суші в Хмельницькому. Зважування, кількість лосося, ціна за 100 г та оцінка за 5 категоріями.">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script async src="https://tally.so/widgets/embed.js"></script>
@@ -27,7 +45,7 @@
     </div>
     <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Суші Гід Хмельницький</h1>
     <p class="text-lg text-zinc-300 max-w-xl mx-auto">
-      Чесний гід по суші міста. Зважування, кількість лосося, ціна за 100 г та зважена оцінка за 5 критеріями.
+      Чесний гід по суші міста. Зважування, кількість лосося, ціна за 100 г та оцінка за 5 категоріями.
     </p>
   </div>
 </header>
@@ -98,7 +116,7 @@ function scoreColor(s) {
 
 function recBadge(r) {
   if (r === 'Так') return '<span class="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700">Рекомендую</span>';
-  if (r === 'Якщо близько') return '<span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Якщо близько</span>';
+  if (r === 'Якщо близько') return '<span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Можна спробувати</span>';
   if (r === 'Ні') return '<span class="text-xs px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-500">Не рекомендую</span>';
   return '';
 }
@@ -138,28 +156,33 @@ function render() {
 
   document.getElementById('grid').innerHTML = list.map(p => {
     const score = p.khmelScore != null ? p.khmelScore.toFixed(0) : '—';
+    const a = p.categories.A_taste != null ? p.categories.A_taste.toFixed(0) : '—';
+    const b = p.categories.B_value != null ? p.categories.B_value.toFixed(0) : '—';
+    const c = p.categories.C_completeness != null ? p.categories.C_completeness.toFixed(1) : '—';
+    const d = p.categories.D_service != null ? p.categories.D_service.toFixed(0) : '—';
+    const e = p.categories.E_delivery != null ? p.categories.E_delivery.toFixed(0) : '—';
     return `
-    <div class="card bg-white rounded-xl border p-4 cursor-pointer" onclick="openModal(${p.id})">
-      <div class="flex justify-between items-start mb-2">
-        <div>
-          <h3 class="font-bold text-base leading-tight">${p.name}</h3>
-          <div class="text-xs text-zinc-500 mt-0.5">${p.category || p.type || ''}</div>
+    <div class="card bg-white rounded-xl border p-5 cursor-pointer" onclick="openModal(${p.id})">
+      <div class="flex justify-between items-start gap-3 mb-3">
+        <div class="min-w-0">
+          <h3 class="font-bold text-lg leading-tight truncate">${p.name}</h3>
+          <div class="text-xs text-zinc-500 mt-1">${p.category || p.type || ''}</div>
         </div>
-        <div class="text-right">
-          <div class="text-2xl font-extrabold ${scoreColor(p.khmelScore)} px-2 py-0.5 rounded-lg">${score}</div>
-          <div class="text-[10px] text-zinc-400 mt-0.5">Khmel Score</div>
+        <div class="text-right shrink-0">
+          <div class="text-3xl font-extrabold ${scoreColor(p.khmelScore)} px-2.5 py-1 rounded-xl">${score}</div>
+          <div class="text-[10px] text-zinc-400 mt-0.5">з 100</div>
         </div>
       </div>
-      <div class="flex flex-wrap gap-1.5 mb-3">
+      <div class="flex flex-wrap gap-1.5 mb-4">
         ${recBadge(p.recommend)}
         ${p.price ? `<span class="text-xs px-2 py-0.5 rounded-full bg-zinc-100">${p.price} грн</span>` : ''}
       </div>
-      <div class="grid grid-cols-5 gap-1 text-center text-[10px] text-zinc-500">
-        <div><div class="font-semibold text-zinc-800">${p.categories.A_taste?.toFixed(0) ?? '—'}</div>Смак</div>
-        <div><div class="font-semibold text-zinc-800">${p.categories.B_value?.toFixed(0) ?? '—'}</div>Цінність</div>
-        <div><div class="font-semibold text-zinc-800">${p.categories.C_completeness?.toFixed(1) ?? '—'}</div>Компл.</div>
-        <div><div class="font-semibold text-zinc-800">${p.categories.D_service?.toFixed(0) ?? '—'}</div>Сервіс</div>
-        <div><div class="font-semibold text-zinc-800">${p.categories.E_delivery?.toFixed(0) ?? '—'}</div>Пакет</div>
+      <div class="grid grid-cols-5 gap-2 text-center text-[11px] text-zinc-500 border-t pt-3">
+        <div><div class="font-bold text-zinc-800 text-sm">${a}</div><div>Смак</div></div>
+        <div><div class="font-bold text-zinc-800 text-sm">${b}</div><div>Цінність</div></div>
+        <div><div class="font-bold text-zinc-800 text-sm">${c}</div><div>Додатки</div></div>
+        <div><div class="font-bold text-zinc-800 text-sm">${d}</div><div>Сервіс</div></div>
+        <div><div class="font-bold text-zinc-800 text-sm">${e}</div><div>Пакет</div></div>
       </div>
     </div>`;
   }).join('');
@@ -169,15 +192,15 @@ function openModal(id) {
   const p = places.find(x => x.id === id);
   if (!p) return;
   document.getElementById('mTitle').textContent = p.name;
-  const s = p.scores;
+  const cat = p.categories;
   document.getElementById('mBody').innerHTML = `
-    <div class="flex items-center gap-3 mb-4">
-      <div class="text-3xl font-extrabold ${scoreColor(p.khmelScore)} px-3 py-1 rounded-xl">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="text-4xl font-extrabold ${scoreColor(p.khmelScore)} px-3 py-1 rounded-xl">
         ${p.khmelScore != null ? p.khmelScore.toFixed(0) : '—'}
       </div>
       <div>
-        <div class="font-medium">Khmel Score</div>
-        <div class="text-sm text-zinc-500">${p.category} · ${p.type}</div>
+        <div class="font-medium text-lg">Оцінка</div>
+        <div class="text-sm text-zinc-500">${p.category || ''} · ${p.type || ''}</div>
         <div class="mt-1">${recBadge(p.recommend)}</div>
       </div>
     </div>
@@ -201,40 +224,26 @@ function openModal(id) {
       </div>
     </div>
 
-    <h4 class="font-bold text-sm mb-2">Детальні оцінки</h4>
-    <div class="space-y-2 text-sm mb-5">
-      ${row('Рис', s.rice, 5)}
-      ${row('Заправка', s.seasoning, 3)}
-      ${row('Лосось', s.salmon, 7)}
-      ${row('Крем-сир', s.cream, 5)}
-      ${row('Огірок', s.cucumber, 4)}
-      ${row('Баланс', s.balance, 5)}
-      ${row('Смак загальний', s.taste, 11)}
-      ${row('Соєвий соус', s.soy, 2)}
-      ${row('Імбир', s.ginger, 1.5)}
-      ${row('Васабі', s.wasabi, 1.5)}
-      ${row('Ціна за 100 г', s.b_price, 10)}
-      ${row('Чесність ваги', s.b_honesty, 8)}
-      ${row('Кількість лосося', s.b_salmon, 12)}
-      ${row('Пакування', s.packaging, 10)}
-      ${row('Зручність замовлення', s.orderConvenience, 5)}
-      ${row('Обслуговування', s.service, 5)}
-      ${row('Час очікування', s.wait, 5)}
+    <h4 class="font-bold text-sm mb-3">Оцінка за 5 категоріями</h4>
+    <div class="space-y-3 text-sm mb-5">
+      ${catRow('A. Смак', cat.A_taste, 40)}
+      ${catRow('B. Цінність і чесність', cat.B_value, 30)}
+      ${catRow('C. Додатки', cat.C_completeness, 5)}
+      ${catRow('D. Сервіс', cat.D_service, 15)}
+      ${catRow('E. Пакування / доставка', cat.E_delivery, 10)}
     </div>
 
-    ${p.pros ? `<div class="mb-3"><div class="text-xs font-semibold text-green-700 mb-1">Плюси</div><div class="text-sm text-zinc-700">${p.pros}</div></div>` : ''}
-    ${p.cons ? `<div class="mb-3"><div class="text-xs font-semibold text-red-700 mb-1">Мінуси</div><div class="text-sm text-zinc-700">${p.cons}</div></div>` : ''}
-    ${p.menu ? `<a href="${p.menu}" target="_blank" class="inline-block mt-2 text-sm text-blue-600 hover:underline">Меню закладу →</a>` : ''}
+    ${p.menu ? `<a href="${p.menu}" target="_blank" class="inline-block mt-1 text-sm text-blue-600 hover:underline">Меню закладу →</a>` : ''}
   `;
   document.getElementById('modal').classList.add('open');
 }
 
-function row(label, val, max) {
-  const v = val != null ? val : '—';
-  return `<div class="flex items-center gap-2">
-    <div class="w-36 text-zinc-600 shrink-0">${label}</div>
+function catRow(label, val, max) {
+  const v = val != null ? (Number.isInteger(val) ? val : val.toFixed(1)) : '—';
+  return `<div class="flex items-center gap-3">
+    <div class="w-44 text-zinc-600 shrink-0">${label}</div>
     <div class="flex-1">${bar(val, max)}</div>
-    <div class="w-10 text-right font-medium">${v}</div>
+    <div class="w-14 text-right font-semibold">${v}<span class="text-zinc-400 font-normal text-xs">/${max}</span></div>
   </div>`;
 }
 
