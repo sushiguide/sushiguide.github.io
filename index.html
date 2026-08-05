@@ -127,6 +127,11 @@ function recBadge(r) {
   return '';
 }
 
+function incompleteBadge(p) {
+  if (p.incomplete) return '<span class="text-xs px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Часткові дані</span>';
+  return '';
+}
+
 function bar(val, max) {
   if (val == null) return '<div class="bar"><div style="width:0%"></div></div>';
   const pct = Math.min(100, (val / max) * 100);
@@ -181,6 +186,7 @@ function render() {
       </div>
       <div class="flex flex-wrap gap-1.5 mb-4">
         ${recBadge(p.recommend)}
+        ${incompleteBadge(p)}
         ${p.price ? `<span class="text-xs px-2 py-0.5 rounded-full bg-zinc-100">${p.price} грн</span>` : ''}
       </div>
       <div class="grid grid-cols-5 gap-2 text-center text-[11px] text-zinc-500 border-t pt-3">
@@ -207,7 +213,7 @@ function openModal(id) {
       <div>
         <div class="font-medium text-lg">Оцінка</div>
         <div class="text-sm text-zinc-500">${p.category || ''} · ${p.type || ''}</div>
-        <div class="mt-1">${recBadge(p.recommend)}</div>
+        <div class="mt-1 flex flex-wrap gap-1.5">${recBadge(p.recommend)}${incompleteBadge(p)}</div>
       </div>
     </div>
 
