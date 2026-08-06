@@ -102,7 +102,7 @@
      class="text-zinc-400 hover:text-zinc-200 transition-colors">
     Запропонувати новий заклад
   </a>
-  <div class="mt-3 text-[10px] text-zinc-500">Останнє оновлення: 5 серпня 2026</div>
+  <div class="mt-3 text-[10px] text-zinc-500">Останнє оновлення: 6 серпня 2026</div>
 </footer>
 
 <script>
@@ -163,6 +163,51 @@ function recBadge(r) {
 function incompleteBadge(p) {
   if (p.incomplete) return '<span class="text-xs px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Часткові дані</span>';
   return '';
+}
+
+function deliveryBlock(p) {
+  const min = p.deliveryMin;
+  const fee = p.deliveryFee;
+  const free = p.deliveryFreeFrom;
+  const note = p.deliveryNote;
+  const hasAny = min != null || fee != null || free != null || note;
+  if (!hasAny) return '';
+
+  if ((fee === '—' || fee === '–') && (min === '—' || min === '–' || min == null) && (free === '—' || free === '–' || free == null)) {
+    return `<div class="bg-zinc-50 rounded-lg p-3 text-sm mb-5">
+      <div class="font-medium mb-1">Доставка</div>
+      <div class="text-zinc-600">Немає доставки / лише самовивіз</div>
+      ${note ? `<div class="text-zinc-500 text-xs mt-1">${note}</div>` : ''}
+    </div>`;
+  }
+
+  const fmt = (val) => {
+    if (val == null || val === '') return '—';
+    if (val === '—' || val === '–' || val === 'N/A') return val;
+    if (typeof val === 'number') return val + ' грн';
+    if (/^\d+([.,]\d+)?$/.test(String(val))) return val + ' грн';
+    if (String(val).includes('/')) return String(val) + ' грн';
+    return String(val);
+  };
+
+  return `<div class="mb-5">
+    <h4 class="font-bold text-sm mb-2">Доставка</h4>
+    <div class="grid grid-cols-3 gap-2 text-sm mb-2">
+      <div class="bg-zinc-50 rounded-lg p-2.5">
+        <div class="text-zinc-500 text-xs">Мін. сума</div>
+        <div class="font-semibold">${fmt(min)}</div>
+      </div>
+      <div class="bg-zinc-50 rounded-lg p-2.5">
+        <div class="text-zinc-500 text-xs">Ціна</div>
+        <div class="font-semibold">${fmt(fee)}</div>
+      </div>
+      <div class="bg-zinc-50 rounded-lg p-2.5">
+        <div class="text-zinc-500 text-xs">Безкоштовно від</div>
+        <div class="font-semibold">${fmt(free)}</div>
+      </div>
+    </div>
+    ${note ? `<div class="text-xs text-zinc-500">${note}</div>` : ''}
+  </div>`;
 }
 
 function bar(val, max) {
@@ -265,6 +310,8 @@ function openModal(id) {
         <div class="font-semibold">${p.salmonPct != null ? p.salmonPct + '%' : '—'} ${p.salmonG ? '(' + p.salmonG + ' г)' : ''}</div>
       </div>
     </div>
+
+    ${deliveryBlock(p)}
 
     <h4 class="font-bold text-sm mb-3">Оцінка за 5 категоріями</h4>
     <div class="space-y-3 text-sm mb-5">
