@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Convert published Google Sheets CSV → data.json for Sushi Guide.
-v2.0 scoring + delivery fields + incomplete flag.
+v2.0 scoring + delivery fields + stability + incomplete flag.
 """
 
 import csv
@@ -225,6 +225,8 @@ def convert(rows: list) -> list:
             "deliveryFee": delivery_str(row.get("Доставка (Ціна)")),
             "deliveryFreeFrom": delivery_str(row.get("Безкоштовно від")),
             "deliveryNote": (row.get("Примітка") or "").strip() or None,
+            # Empty if <2 orders; else Висока / Середня / Низька
+            "stability": (row.get("Стабільність") or "").strip() or None,
         }
         places.append(place)
 
