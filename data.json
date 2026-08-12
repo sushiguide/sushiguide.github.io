@@ -56,61 +56,6 @@
   },
   {
     "id": 2,
-    "name": "Sesame sushi & pizza",
-    "date": "29.07.2026",
-    "menu": "https://sesame.choiceqr.com/",
-    "type": "Піца + Суші",
-    "category": "Преміум",
-    "recommend": "Так",
-    "order": "Філадельфія класична з огірком",
-    "price": 357,
-    "priceDiscount": 357,
-    "declaredWeight": 320,
-    "actualWeight": 329,
-    "rollWeight": 41,
-    "ricePct": 39,
-    "salmonPct": 24,
-    "creamPct": 23,
-    "cucumberPct": 9,
-    "salmonG": 80,
-    "pricePer100g": 109,
-    "weightRatio": 1.028,
-    "scores": {
-      "rice": 5,
-      "seasoning": 4,
-      "salmon": 9,
-      "cream": 6,
-      "cucumber": 4,
-      "balance": 6,
-      "taste": 9,
-      "addons": 4,
-      "b_honesty": 10,
-      "b_salmon": 6,
-      "packaging": 10,
-      "orderConvenience": 5,
-      "service": 4,
-      "wait": 5
-    },
-    "categories": {
-      "A_taste": 43,
-      "B_value": 16,
-      "C_completeness": 4,
-      "D_service": 14,
-      "E_delivery": 10
-    },
-    "waitTime": "10 хв",
-    "pros": null,
-    "cons": null,
-    "score": 87,
-    "incomplete": false,
-    "deliveryMin": "400",
-    "deliveryFee": "50/100",
-    "deliveryFreeFrom": "—",
-    "deliveryNote": null,
-    "stability": "Висока"
-  },
-  {
-    "id": 3,
     "name": "Amore Mio",
     "date": "09.07.2026",
     "menu": "https://amoremio-khm.choiceqr.com/",
@@ -165,7 +110,7 @@
     "stability": "Висока"
   },
   {
-    "id": 4,
+    "id": 3,
     "name": "Modesto",
     "date": "10.07.2026",
     "menu": "https://modesto.com.ua/",
@@ -220,7 +165,7 @@
     "stability": null
   },
   {
-    "id": 5,
+    "id": 4,
     "name": "Premium Sushi",
     "date": "18.07.2026",
     "menu": "https://khmelnytskyi.premium-sushi.com.ua/",
@@ -275,7 +220,7 @@
     "stability": "Середня"
   },
   {
-    "id": 6,
+    "id": 5,
     "name": "Ikura",
     "date": "17.06.2026",
     "menu": "https://ikura.ua/khmelnytskyi/",
@@ -330,7 +275,7 @@
     "stability": null
   },
   {
-    "id": 7,
+    "id": 6,
     "name": "Da Sushi",
     "date": "24.06.2026",
     "menu": "https://da-sushi.choiceqr.com/",
@@ -385,7 +330,7 @@
     "stability": null
   },
   {
-    "id": 8,
+    "id": 7,
     "name": "Sentrapol",
     "date": "11.06.2026",
     "menu": "https://sentrapol.choiceqr.com/",
@@ -440,7 +385,7 @@
     "stability": null
   },
   {
-    "id": 9,
+    "id": 8,
     "name": "Yoko",
     "date": "16.06.2026",
     "menu": "https://yoko.fun/section:menu",
@@ -495,7 +440,7 @@
     "stability": null
   },
   {
-    "id": 10,
+    "id": 9,
     "name": "Кухмістерська Хаселева",
     "date": "17.07.2026",
     "menu": "haseleva-khm.choiceqr.com/",
@@ -550,7 +495,7 @@
     "stability": null
   },
   {
-    "id": 11,
+    "id": 10,
     "name": "La П'єц",
     "date": "01.07.2026",
     "menu": "https://la.ua/khmelnytskyi/catalog/",
@@ -605,7 +550,7 @@
     "stability": null
   },
   {
-    "id": 12,
+    "id": 11,
     "name": "rollamore",
     "date": "22.06.2026",
     "menu": "https://menu.ps.me/nyU8S-e3gnY",
@@ -660,7 +605,7 @@
     "stability": null
   },
   {
-    "id": 13,
+    "id": 12,
     "name": "Модзя",
     "date": "11.07.2026",
     "menu": "https://modzya.choiceqr.com/",
@@ -715,7 +660,7 @@
     "stability": null
   },
   {
-    "id": 14,
+    "id": 13,
     "name": "Простір",
     "date": "03.07.2026",
     "menu": "https://prostir-kh.choiceqr.com/",
@@ -770,7 +715,7 @@
     "stability": null
   },
   {
-    "id": 15,
+    "id": 14,
     "name": "Суші-бар Tokio",
     "date": "16.07.2026",
     "menu": "https://tokio.co.ua",
@@ -825,7 +770,7 @@
     "stability": null
   },
   {
-    "id": 16,
+    "id": 15,
     "name": "Все для суші",
     "date": "18.06.2026",
     "menu": "https://sushik.km.ua/",
@@ -880,7 +825,7 @@
     "stability": "Висока"
   },
   {
-    "id": 17,
+    "id": 16,
     "name": "Авокадо Суші-бар",
     "date": "21.06.2026",
     "menu": "https://avokado.km.ua/",
@@ -935,7 +880,7 @@
     "stability": null
   },
   {
-    "id": 18,
+    "id": 17,
     "name": "Бамбук",
     "date": "20.07.2026",
     "menu": "https://bambuk81.choiceqr.com/",
@@ -988,6 +933,61 @@
     "deliveryFreeFrom": "750",
     "deliveryNote": null,
     "stability": "Середня"
+  },
+  {
+    "id": 18,
+    "name": "Sesame sushi & pizza",
+    "date": "29.07.2026",
+    "menu": "https://sesame.choiceqr.com/",
+    "type": "Піца + Суші",
+    "category": "Преміум",
+    "recommend": null,
+    "order": "Філадельфія лайт з огірком",
+    "price": 287,
+    "priceDiscount": 287,
+    "declaredWeight": 290,
+    "actualWeight": null,
+    "rollWeight": null,
+    "ricePct": null,
+    "salmonPct": null,
+    "creamPct": null,
+    "cucumberPct": null,
+    "salmonG": 0,
+    "pricePer100g": 99,
+    "weightRatio": null,
+    "scores": {
+      "rice": 5,
+      "seasoning": 4,
+      "salmon": 9,
+      "cream": 6,
+      "cucumber": 4,
+      "balance": null,
+      "taste": 9,
+      "addons": 4,
+      "b_honesty": null,
+      "b_salmon": null,
+      "packaging": 10,
+      "orderConvenience": 5,
+      "service": 4,
+      "wait": 5
+    },
+    "categories": {
+      "A_taste": 37,
+      "B_value": null,
+      "C_completeness": 4,
+      "D_service": 14,
+      "E_delivery": 10
+    },
+    "waitTime": "10 хв",
+    "pros": null,
+    "cons": null,
+    "score": 65,
+    "incomplete": true,
+    "deliveryMin": "400",
+    "deliveryFee": "50/100",
+    "deliveryFreeFrom": "—",
+    "deliveryNote": null,
+    "stability": "Висока"
   },
   {
     "id": 19,
