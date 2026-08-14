@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
 Convert published Google Sheets CSV → data.json for Sushi Guide.
-v2.0 scoring + delivery fields + stability + incomplete flag.
+v2.0 scoring + delivery fields + stability + lastUpdated + incomplete flag.
 """
 
 import csv
 import json
 import re
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 CSV_URL = (
@@ -225,7 +226,6 @@ def convert(rows: list) -> list:
             "deliveryFee": delivery_str(row.get("Доставка (Ціна)")),
             "deliveryFreeFrom": delivery_str(row.get("Безкоштовно від")),
             "deliveryNote": (row.get("Примітка") or "").strip() or None,
-            # Empty if <2 orders; else Висока / Середня / Низька
             "stability": (row.get("Стабільність") or "").strip() or None,
         }
         places.append(place)
@@ -251,11 +251,17 @@ def main():
         top = places[0]
         print(f"Top: {top['score']}  {top['name']}  fee={top.get('deliveryFee')}")
 
+    last_updated = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    payload = {
+        "lastUpdated": last_updated,
+        "places": places,
+    }
+
     OUT_PATH.write_text(
-        json.dumps(places, ensure_ascii=False, indent=2),
+        json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"Wrote {OUT_PATH} ({OUT_PATH.stat().st_size} bytes)")
+    print(f"Wrote {OUT_PATH} ({OUT_PATH.stat().st_size} bytes), lastUpdated={last_updated}")
 
 
 if __name__ == "__main__":
