@@ -10,7 +10,6 @@
   <link rel="canonical" href="https://sushiguide.github.io/">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="uk_UA">
   <meta property="og:title" content="Суші Гід Хмельницький">
@@ -22,7 +21,6 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/png">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Суші Гід Хмельницький">
   <meta name="twitter:description" content="Чесний рейтинг суші в Хмельницькому. Зважування, кількість лосося, ціна за 100 г та оцінка за 5 категоріями.">
@@ -42,10 +40,7 @@
         "url": "https://sushiguide.github.io/",
         "description": "Чесний рейтинг суші в Хмельницькому. Зважування, кількість лосося, ціна за 100 г та оцінка за 5 категоріями. Незалежна дегустація 2026.",
         "inLanguage": "uk-UA",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Суші Гід Хмельницький"
-        }
+        "publisher": { "@type": "Organization", "name": "Суші Гід Хмельницький" }
       },
       {
         "@type": "ItemList",
@@ -57,12 +52,7 @@
           {"@type": "ListItem", "position": 2, "name": "Sesame sushi & pizza", "description": "Оцінка 87/100, Преміум"},
           {"@type": "ListItem", "position": 3, "name": "Amore Mio", "description": "Оцінка 81/100, Середній"},
           {"@type": "ListItem", "position": 4, "name": "Modesto", "description": "Оцінка 80/100, Середній"},
-          {"@type": "ListItem", "position": 5, "name": "Premium Sushi", "description": "Оцінка 79/100, Преміум"},
-          {"@type": "ListItem", "position": 6, "name": "Ikura", "description": "Оцінка 78/100, Середній"},
-          {"@type": "ListItem", "position": 7, "name": "Da Sushi", "description": "Оцінка 73/100, Середній"},
-          {"@type": "ListItem", "position": 8, "name": "Sentrapol", "description": "Оцінка 72/100, Вище середнього"},
-          {"@type": "ListItem", "position": 9, "name": "Yoko", "description": "Оцінка 71/100, Вище середнього"},
-          {"@type": "ListItem", "position": 10, "name": "Кухмістерська Хаселева", "description": "Оцінка 71/100, Преміум"}
+          {"@type": "ListItem", "position": 5, "name": "Premium Sushi", "description": "Оцінка 79/100, Преміум"}
         ]
       }
     ]
@@ -102,7 +92,7 @@
      class="text-zinc-400 hover:text-zinc-200 transition-colors">
     Запропонувати новий заклад
   </a>
-  <div class="mt-3 text-[10px] text-zinc-500">Останнє оновлення: 8 серпня 2026</div>
+  <div id="lastUpdated" class="mt-3 text-[10px] text-zinc-500">Останнє оновлення: —</div>
 </footer>
 
 <script>
@@ -136,8 +126,33 @@ async function loadContent() {
 
 async function loadData() {
   const res = await fetch('data.json');
-  places = await res.json();
+  const data = await res.json();
+  // New format: { lastUpdated, places } — legacy: bare array
+  if (Array.isArray(data)) {
+    places = data;
+  } else {
+    places = data.places || [];
+    if (data.lastUpdated) setLastUpdated(data.lastUpdated);
+  }
   render();
+}
+
+function setLastUpdated(iso) {
+  const el = document.getElementById('lastUpdated');
+  if (!el || !iso) return;
+  const months = [
+    'січня', 'лютого', 'березня', 'квітня', 'травня', 'червня',
+    'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'
+  ];
+  const m = String(iso).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!m) {
+    el.textContent = 'Останнє оновлення: ' + iso;
+    return;
+  }
+  const day = parseInt(m[3], 10);
+  const month = months[parseInt(m[2], 10) - 1] || m[2];
+  const year = m[1];
+  el.textContent = `Останнє оновлення: ${day} ${month} ${year}`;
 }
 
 function getScore(p) {
