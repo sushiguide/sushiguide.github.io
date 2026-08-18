@@ -253,7 +253,30 @@ def main():
         top = places[0]
         print(f"Top: {top['score']}  {top['name']}  fee={top.get('deliveryFee')}")
 
+    # Only bump lastUpdated when place data actually changes.
+    # Otherwise nightly Action would rewrite the date every day and always commit.
     last_updated = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    prev_updated = None
+    data_changed = True
+    if OUT_PATH.exists():
+        try:
+            prev = json.loads(OUT_PATH.read_text(encoding="utf-8"))
+            if isinstance(prev, dict):
+                prev_places = prev.get("places")
+                prev_updated = prev.get("lastUpdated")
+            elif isinstance(prev, list):
+                prev_places = prev
+            else:
+                prev_places = None
+            if prev_places is not None:
+                new_norm = json.dumps(places, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+                old_norm = json.dumps(prev_places, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+                if new_norm == old_norm:
+                    data_changed = False
+                    last_updated = prev_updated or last_updated
+        except Exception as e:
+            print(f"Could not compare with existing data.json: {e}")
+
     payload = {
         "lastUpdated": last_updated,
         "places": places,
@@ -263,7 +286,8 @@ def main():
         json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"Wrote {OUT_PATH} ({OUT_PATH.stat().st_size} bytes), lastUpdated={last_updated}")
+    status = "CHANGED" if data_changed else "unchanged (date kept)"
+    print(f"Wrote {OUT_PATH} ({OUT_PATH.stat().st_size} bytes), lastUpdated={last_updated}, data={status}")
 
 
 if __name__ == "__main__":
