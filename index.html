@@ -127,7 +127,6 @@ async function loadContent() {
 async function loadData() {
   const res = await fetch('data.json');
   const data = await res.json();
-  // New format: { lastUpdated, places } — legacy: bare array
   if (Array.isArray(data)) {
     places = data;
   } else {
@@ -170,7 +169,9 @@ function scoreColor(s) {
 
 function recBadge(r) {
   if (r === 'Так') return '<span class="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700">Рекомендую</span>';
-  if (r === 'Якщо близько') return '<span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Можна спробувати</span>';
+  if (r === 'Можна спробувати' || r === 'Якщо близько') {
+    return '<span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Можна спробувати</span>';
+  }
   if (r === 'Ні') return '<span class="text-xs px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-500">Не рекомендую</span>';
   return '';
 }
