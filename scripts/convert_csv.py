@@ -135,7 +135,9 @@ def convert(rows: list) -> list:
         addons = parse_num(row.get("Соєвий соус і додатки  (0-5)"))
         packaging = parse_num(row.get("Пакування (1-10)"))
         order_conv = parse_num(row.get("Зручність замовлення (1-5)"))
-        service = parse_num(row.get("Обслуговування (Оцінка)"))
+        service = parse_num(row.get("Обслуговування (1-5)"))
+        if service is None:
+            service = parse_num(row.get("Обслуговування (Оцінка)"))
         wait = parse_num(row.get("Час очікування (0-5)"))
 
         b_honesty = honesty_score(actual, declared)
