@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-18",
+  "lastUpdated": "2026-08-19",
   "places": [
     {
       "id": 1,
@@ -1268,6 +1268,61 @@
     },
     {
       "id": 24,
+      "name": "Мамут",
+      "date": "19.08.2026",
+      "menu": "https://mamut-khm.choiceqr.com/",
+      "type": "Суші",
+      "category": "Середній",
+      "recommend": "Ні",
+      "order": "Філадельфія",
+      "price": 290,
+      "priceDiscount": 269.7,
+      "declaredWeight": 270,
+      "actualWeight": 296,
+      "rollWeight": 37,
+      "ricePct": 54,
+      "salmonPct": 19,
+      "creamPct": 11,
+      "cucumberPct": 8,
+      "salmonG": 56,
+      "pricePer100g": 91,
+      "weightRatio": 1.096,
+      "scores": {
+        "rice": 3,
+        "seasoning": 3,
+        "salmon": 6,
+        "cream": 3,
+        "cucumber": 3,
+        "balance": 2,
+        "taste": 7,
+        "addons": 4,
+        "b_honesty": 10,
+        "b_salmon": 4,
+        "packaging": 7,
+        "orderConvenience": 5,
+        "service": 3,
+        "wait": 4
+      },
+      "categories": {
+        "A_taste": 27,
+        "B_value": 14,
+        "C_completeness": 4,
+        "D_service": 12,
+        "E_delivery": 7
+      },
+      "waitTime": "15 хв",
+      "pros": "риба не має запаху чи смаку. крем сир не тримає форму. Рис дуже легко заправлений, попадались недоварені зерна, тверді. крем-сир не має вираженого смаку, загалом суші не дуже мають смак. Мало імбиря, багато соєвого соусу.ЗАМ. 2 Лосось смачний і гарно пахне, на смак теж  нпоганий, хоча не найсмачніший. Загалом лосось не лосось не преміум та нарізаний тонкими шматками, по два тонких шматка на ролі. Рис добре зварений і заправлений, має солодкувати присмак, але сухий, не дуже добре жується, це основне що руйнує смак ролівб бо відчуваються сухі, твердуваті зерна рису. Крем-сир прийнятної якості, має легкий вершковий смак, по консистенції не дуже густий, що змушує рол міняти форму коли береш його паличками. Огірок свіжий та хрумкий.",
+      "cons": null,
+      "score": 64,
+      "incomplete": false,
+      "deliveryMin": "—",
+      "deliveryFee": "80/100/110/130",
+      "deliveryFreeFrom": "800/900/1050/1300",
+      "deliveryNote": null,
+      "stability": null
+    },
+    {
+      "id": 25,
       "name": "Toretto",
       "date": "24.05.2026",
       "menu": "https://toretto.com.ua/menu/",
@@ -1322,7 +1377,7 @@
       "stability": null
     },
     {
-      "id": 25,
+      "id": 26,
       "name": "Мрія",
       "date": "29.05.2026",
       "menu": "https://pizza-mriya.choiceqr.com/",
@@ -1377,7 +1432,7 @@
       "stability": null
     },
     {
-      "id": 26,
+      "id": 27,
       "name": "Автор Суші",
       "date": "25.06.2026",
       "menu": "https://avtor.km.ua/",
@@ -1432,7 +1487,7 @@
       "stability": null
     },
     {
-      "id": 27,
+      "id": 28,
       "name": "Sushizoom",
       "date": "30.06.2026",
       "menu": "https://sushizoom.com/khmelnytskyi",
@@ -1487,7 +1542,7 @@
       "stability": null
     },
     {
-      "id": 28,
+      "id": 29,
       "name": "Pronto Pizza",
       "date": "12.08.2026",
       "menu": "https://prontopizza.ua/khmelnytskyi/",
@@ -1542,7 +1597,7 @@
       "stability": "Висока"
     },
     {
-      "id": 29,
+      "id": 30,
       "name": "Sushi Master",
       "date": "31.05.2026",
       "menu": "khmelnitskiy.sushi-master.ua",
@@ -1597,7 +1652,7 @@
       "stability": null
     },
     {
-      "id": 30,
+      "id": 31,
       "name": "Поїж суші",
       "date": "29.06.2026",
       "menu": "https://poyizh-sushi.choiceqr.com/",
@@ -1652,7 +1707,7 @@
       "stability": null
     },
     {
-      "id": 31,
+      "id": 32,
       "name": "Mia Sushi",
       "date": "23.05.2026",
       "menu": "https://khmelnytskyi.miasushi.com/",
@@ -1707,7 +1762,7 @@
       "stability": null
     },
     {
-      "id": 32,
+      "id": 33,
       "name": "Більше риби",
       "date": "21.05.2026",
       "menu": "https://bilsheryby.com.ua/#menu",
@@ -1762,7 +1817,7 @@
       "stability": null
     },
     {
-      "id": 33,
+      "id": 34,
       "name": "Verona sushi&pizza",
       "date": "28.05.2026",
       "menu": "https://verona-sushi-pizza.choiceqr.com/",
@@ -1817,7 +1872,7 @@
       "stability": null
     },
     {
-      "id": 34,
+      "id": 35,
       "name": "Chili Pizza",
       "date": "15.07.2026",
       "menu": "https://chili-pizza2.choiceqr.com/",
@@ -1872,7 +1927,7 @@
       "stability": null
     },
     {
-      "id": 35,
+      "id": 36,
       "name": "Піца Паляниця",
       "date": "16.07.2026",
       "menu": "https://palyanicahm.ps.me/",
@@ -1927,7 +1982,7 @@
       "stability": null
     },
     {
-      "id": 36,
+      "id": 37,
       "name": "Сусіди",
       "date": "07.07.2026",
       "menu": "https://susidy.cafe/",
@@ -1982,7 +2037,7 @@
       "stability": null
     },
     {
-      "id": 37,
+      "id": 38,
       "name": "Osama Sushi",
       "date": "08.07.2026",
       "menu": "https://osama.com.ua/",
@@ -2037,7 +2092,7 @@
       "stability": "Висока"
     },
     {
-      "id": 38,
+      "id": 39,
       "name": "З'їв би сам",
       "date": "06.07.2026",
       "menu": "https://zivbysam.ua/",
@@ -2092,7 +2147,7 @@
       "stability": null
     },
     {
-      "id": 39,
+      "id": 40,
       "name": "Суші босс",
       "date": "16.07.2026",
       "menu": "https://khmelnytskyi.sushiboss.od.ua/",
@@ -2147,7 +2202,7 @@
       "stability": null
     },
     {
-      "id": 40,
+      "id": 41,
       "name": "Fire Sushi",
       "date": "06.06.2026",
       "menu": "https://khmelnytskyi.firesushi.com.ua/",
@@ -2202,7 +2257,7 @@
       "stability": null
     },
     {
-      "id": 41,
+      "id": 42,
       "name": "4iFan",
       "date": "10.08.2026",
       "menu": "https://4ifan.choiceqr.com/",
@@ -2257,7 +2312,7 @@
       "stability": null
     },
     {
-      "id": 42,
+      "id": 43,
       "name": "Лавр",
       "date": "12.07.2026",
       "menu": "https://menu.ps.me/4vjaaTLuN5A/",
@@ -2308,61 +2363,6 @@
       "deliveryMin": "—",
       "deliveryFee": "—",
       "deliveryFreeFrom": "—",
-      "deliveryNote": null,
-      "stability": null
-    },
-    {
-      "id": 43,
-      "name": "Мамут",
-      "date": "26.06.2026",
-      "menu": "https://mamut-khm.choiceqr.com/",
-      "type": "Суші",
-      "category": "Середній",
-      "recommend": "Ні",
-      "order": "Філадельфія",
-      "price": 290,
-      "priceDiscount": 269.7,
-      "declaredWeight": 270,
-      "actualWeight": null,
-      "rollWeight": null,
-      "ricePct": null,
-      "salmonPct": null,
-      "creamPct": null,
-      "cucumberPct": null,
-      "salmonG": 0,
-      "pricePer100g": 100,
-      "weightRatio": null,
-      "scores": {
-        "rice": 3,
-        "seasoning": 1,
-        "salmon": 6,
-        "cream": 2,
-        "cucumber": 2,
-        "balance": null,
-        "taste": 3,
-        "addons": 3,
-        "b_honesty": null,
-        "b_salmon": null,
-        "packaging": 7,
-        "orderConvenience": 5,
-        "service": 3,
-        "wait": 4
-      },
-      "categories": {
-        "A_taste": 17,
-        "B_value": null,
-        "C_completeness": 3,
-        "D_service": 12,
-        "E_delivery": 7
-      },
-      "waitTime": "15 хв",
-      "pros": "риба не має запаху чи смаку. крем сир не тримає форму. Рис дуже легко заправлений, попадались недоварені зерна, тверді. крем-сир не має вираженого смаку, загалом суші не дуже мають смак. Мало імбиря, багато соєвого соусу",
-      "cons": null,
-      "score": 39,
-      "incomplete": true,
-      "deliveryMin": "—",
-      "deliveryFee": "80/100/110/130",
-      "deliveryFreeFrom": "800/900/1050/1300",
       "deliveryNote": null,
       "stability": null
     }
