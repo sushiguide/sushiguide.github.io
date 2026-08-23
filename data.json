@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-21",
+  "lastUpdated": "2026-08-23",
   "places": [
     {
       "id": 1,
@@ -113,6 +113,61 @@
     },
     {
       "id": 3,
+      "name": "Більше риби",
+      "date": "23.08.2026",
+      "menu": "https://bilsheryby.com.ua/#menu",
+      "type": "Суші",
+      "category": "Вище середнього",
+      "recommend": "Ні",
+      "order": "Філадельфія де люкс класична",
+      "price": 329,
+      "priceDiscount": 312,
+      "declaredWeight": 320,
+      "actualWeight": 342,
+      "rollWeight": 43,
+      "ricePct": 35,
+      "salmonPct": 26,
+      "creamPct": 21,
+      "cucumberPct": 19,
+      "salmonG": 88,
+      "pricePer100g": 91,
+      "weightRatio": 1.069,
+      "scores": {
+        "rice": 5,
+        "seasoning": 3,
+        "salmon": 8,
+        "cream": 6,
+        "cucumber": 4,
+        "balance": 6,
+        "taste": 8,
+        "addons": 4,
+        "b_honesty": 10,
+        "b_salmon": 8,
+        "packaging": 9,
+        "orderConvenience": 4,
+        "service": 3,
+        "wait": 5
+      },
+      "categories": {
+        "A_taste": 40,
+        "B_value": 18,
+        "C_completeness": 4,
+        "D_service": 12,
+        "E_delivery": 9
+      },
+      "waitTime": "20 хв",
+      "pros": "Тут справді більше риби. роли гарні, майже рівно порізані. Відхиленння 2-3 грами, в основному це баланс, десь більше лосося, десь більше огірка, а десь крем  сиру. Загалом це не дуже добре. Рис нероганий, є заправка і він смачний, але трошки занадто розварений і злегка липкий. Лосось, слабосолений, товсті шматки, шосить смачний, хоча хотілося б свіжий. Крем сир якісний та смачний, має виражений вершковий смак. Огірок свіжий, добре порізаний. В загальному смак досить збалансований та смачний. Враження лише трошки псується через липкий рис.",
+      "cons": null,
+      "score": 83,
+      "incomplete": false,
+      "deliveryMin": "0",
+      "deliveryFee": "120",
+      "deliveryFreeFrom": "900",
+      "deliveryNote": null,
+      "stability": "Середня"
+    },
+    {
+      "id": 4,
       "name": "Amore Mio",
       "date": "09.07.2026",
       "menu": "https://amoremio-khm.choiceqr.com/",
@@ -167,7 +222,7 @@
       "stability": "Висока"
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "Burger Pizza Loft",
       "date": "18.08.2026",
       "menu": "https://burger-pizza-loft-khm.choiceqr.com/",
@@ -222,7 +277,7 @@
       "stability": "Висока"
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "Modesto",
       "date": "10.07.2026",
       "menu": "https://modesto.com.ua/",
@@ -277,7 +332,7 @@
       "stability": null
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "Premium Sushi",
       "date": "18.07.2026",
       "menu": "https://khmelnytskyi.premium-sushi.com.ua/",
@@ -332,7 +387,7 @@
       "stability": "Середня"
     },
     {
-      "id": 7,
+      "id": 8,
       "name": "Ikura",
       "date": "17.06.2026",
       "menu": "https://ikura.ua/khmelnytskyi/",
@@ -387,7 +442,7 @@
       "stability": null
     },
     {
-      "id": 8,
+      "id": 9,
       "name": "TOKI asia&sushi",
       "date": "17.08.2026",
       "menu": "https://toki.choiceqr.com/",
@@ -442,7 +497,7 @@
       "stability": "Середня"
     },
     {
-      "id": 9,
+      "id": 10,
       "name": "Sesame sushi & pizza",
       "date": "13.08.2026",
       "menu": "https://sesame.choiceqr.com/",
@@ -497,7 +552,7 @@
       "stability": "Висока"
     },
     {
-      "id": 10,
+      "id": 11,
       "name": "Балу Піца та Суші",
       "date": "16.08.2026",
       "menu": "https://t.me/baloomenu",
@@ -552,7 +607,7 @@
       "stability": "Висока"
     },
     {
-      "id": 11,
+      "id": 12,
       "name": "Da Sushi",
       "date": "24.06.2026",
       "menu": "https://da-sushi.choiceqr.com/",
@@ -607,7 +662,7 @@
       "stability": null
     },
     {
-      "id": 12,
+      "id": 13,
       "name": "Sentrapol",
       "date": "11.06.2026",
       "menu": "https://sentrapol.choiceqr.com/",
@@ -662,7 +717,7 @@
       "stability": null
     },
     {
-      "id": 13,
+      "id": 14,
       "name": "Кухмістерська Хаселева",
       "date": "17.07.2026",
       "menu": "haseleva-khm.choiceqr.com/",
@@ -717,7 +772,7 @@
       "stability": null
     },
     {
-      "id": 14,
+      "id": 15,
       "name": "La П'єц",
       "date": "01.07.2026",
       "menu": "https://la.ua/khmelnytskyi/catalog/",
@@ -772,7 +827,7 @@
       "stability": null
     },
     {
-      "id": 15,
+      "id": 16,
       "name": "rollamore",
       "date": "22.06.2026",
       "menu": "https://menu.ps.me/nyU8S-e3gnY",
@@ -827,7 +882,7 @@
       "stability": null
     },
     {
-      "id": 16,
+      "id": 17,
       "name": "Модзя",
       "date": "11.07.2026",
       "menu": "https://modzya.choiceqr.com/",
@@ -882,7 +937,7 @@
       "stability": null
     },
     {
-      "id": 17,
+      "id": 18,
       "name": "Простір",
       "date": "03.07.2026",
       "menu": "https://prostir-kh.choiceqr.com/",
@@ -937,7 +992,7 @@
       "stability": null
     },
     {
-      "id": 18,
+      "id": 19,
       "name": "Суші-бар Tokio",
       "date": "16.07.2026",
       "menu": "https://tokio.co.ua",
@@ -992,7 +1047,7 @@
       "stability": null
     },
     {
-      "id": 19,
+      "id": 20,
       "name": "Все для суші",
       "date": "18.06.2026",
       "menu": "https://sushik.km.ua/",
@@ -1047,7 +1102,7 @@
       "stability": "Висока"
     },
     {
-      "id": 20,
+      "id": 21,
       "name": "Авокадо Суші-бар",
       "date": "21.06.2026",
       "menu": "https://avokado.km.ua/",
@@ -1102,7 +1157,7 @@
       "stability": null
     },
     {
-      "id": 21,
+      "id": 22,
       "name": "Бамбук",
       "date": "20.07.2026",
       "menu": "https://bambuk81.choiceqr.com/",
@@ -1157,7 +1212,7 @@
       "stability": "Середня"
     },
     {
-      "id": 22,
+      "id": 23,
       "name": "Atlant Pizza",
       "date": "04.06.2026",
       "menu": "https://atlantpizza.choiceqr.com/",
@@ -1212,7 +1267,7 @@
       "stability": null
     },
     {
-      "id": 23,
+      "id": 24,
       "name": "Pizza 57",
       "date": "23.06.2026",
       "menu": "https://pizza57.choiceqr.com/",
@@ -1267,7 +1322,7 @@
       "stability": null
     },
     {
-      "id": 24,
+      "id": 25,
       "name": "Мамут",
       "date": "19.08.2026",
       "menu": "https://mamut-khm.choiceqr.com/",
@@ -1319,10 +1374,10 @@
       "deliveryFee": "80/100/110/130",
       "deliveryFreeFrom": "800/900/1050/1300",
       "deliveryNote": null,
-      "stability": null
+      "stability": "Середня"
     },
     {
-      "id": 25,
+      "id": 26,
       "name": "Toretto",
       "date": "24.05.2026",
       "menu": "https://toretto.com.ua/menu/",
@@ -1377,7 +1432,7 @@
       "stability": null
     },
     {
-      "id": 26,
+      "id": 27,
       "name": "Мрія",
       "date": "29.05.2026",
       "menu": "https://pizza-mriya.choiceqr.com/",
@@ -1432,7 +1487,7 @@
       "stability": null
     },
     {
-      "id": 27,
+      "id": 28,
       "name": "Автор Суші",
       "date": "25.06.2026",
       "menu": "https://avtor.km.ua/",
@@ -1487,7 +1542,7 @@
       "stability": null
     },
     {
-      "id": 28,
+      "id": 29,
       "name": "Sushizoom",
       "date": "30.06.2026",
       "menu": "https://sushizoom.com/khmelnytskyi",
@@ -1542,7 +1597,7 @@
       "stability": null
     },
     {
-      "id": 29,
+      "id": 30,
       "name": "Pronto Pizza",
       "date": "12.08.2026",
       "menu": "https://prontopizza.ua/khmelnytskyi/",
@@ -1597,7 +1652,7 @@
       "stability": "Висока"
     },
     {
-      "id": 30,
+      "id": 31,
       "name": "Sushi Master",
       "date": "31.05.2026",
       "menu": "khmelnitskiy.sushi-master.ua",
@@ -1652,7 +1707,7 @@
       "stability": null
     },
     {
-      "id": 31,
+      "id": 32,
       "name": "Поїж суші",
       "date": "29.06.2026",
       "menu": "https://poyizh-sushi.choiceqr.com/",
@@ -1707,7 +1762,7 @@
       "stability": null
     },
     {
-      "id": 32,
+      "id": 33,
       "name": "Osama Sushi",
       "date": "08.07.2026",
       "menu": "https://osama.com.ua/",
@@ -1762,7 +1817,7 @@
       "stability": "Висока"
     },
     {
-      "id": 33,
+      "id": 34,
       "name": "Mia Sushi",
       "date": "23.05.2026",
       "menu": "https://khmelnytskyi.miasushi.com/",
@@ -1813,61 +1868,6 @@
       "deliveryMin": "500",
       "deliveryFee": "20/80",
       "deliveryFreeFrom": "—",
-      "deliveryNote": null,
-      "stability": null
-    },
-    {
-      "id": 34,
-      "name": "Більше риби",
-      "date": "21.05.2026",
-      "menu": "https://bilsheryby.com.ua/#menu",
-      "type": "Суші",
-      "category": "Вище середнього",
-      "recommend": "Ні",
-      "order": "Філадельфія де люкс класична",
-      "price": 329,
-      "priceDiscount": 312,
-      "declaredWeight": 320,
-      "actualWeight": null,
-      "rollWeight": 39,
-      "ricePct": 0,
-      "salmonPct": 0,
-      "creamPct": 0,
-      "cucumberPct": 0,
-      "salmonG": 0,
-      "pricePer100g": 98,
-      "weightRatio": null,
-      "scores": {
-        "rice": 5,
-        "seasoning": 3,
-        "salmon": 8,
-        "cream": 5,
-        "cucumber": 3,
-        "balance": 2,
-        "taste": 6,
-        "addons": 3,
-        "b_honesty": null,
-        "b_salmon": 1,
-        "packaging": 8,
-        "orderConvenience": 4,
-        "service": 3,
-        "wait": 5
-      },
-      "categories": {
-        "A_taste": 32,
-        "B_value": 1,
-        "C_completeness": 3,
-        "D_service": 12,
-        "E_delivery": 8
-      },
-      "waitTime": "15 хв",
-      "pros": null,
-      "cons": null,
-      "score": 56,
-      "incomplete": false,
-      "deliveryMin": "0",
-      "deliveryFee": "120",
-      "deliveryFreeFrom": "900",
       "deliveryNote": null,
       "stability": null
     },
