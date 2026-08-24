@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-23",
+  "lastUpdated": "2026-08-24",
   "places": [
     {
       "id": 1,
@@ -1386,8 +1386,8 @@
       "recommend": "Так",
       "order": "Філадельфія класична",
       "price": 330,
-      "priceDiscount": 330,
-      "declaredWeight": 340,
+      "priceDiscount": 340,
+      "declaredWeight": 310,
       "actualWeight": null,
       "rollWeight": 37,
       "ricePct": 0,
@@ -1395,7 +1395,7 @@
       "creamPct": 0,
       "cucumberPct": 0,
       "salmonG": 0,
-      "pricePer100g": 97,
+      "pricePer100g": 110,
       "weightRatio": null,
       "scores": {
         "rice": 5,
