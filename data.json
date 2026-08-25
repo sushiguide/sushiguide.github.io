@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-24",
+  "lastUpdated": "2026-08-25",
   "places": [
     {
       "id": 1,
@@ -1818,61 +1818,6 @@
     },
     {
       "id": 34,
-      "name": "Mia Sushi",
-      "date": "23.05.2026",
-      "menu": "https://khmelnytskyi.miasushi.com/",
-      "type": "Піца + Суші",
-      "category": "Середній",
-      "recommend": "Ні",
-      "order": "Філадельфія",
-      "price": 299,
-      "priceDiscount": 273.5,
-      "declaredWeight": 260,
-      "actualWeight": null,
-      "rollWeight": 30,
-      "ricePct": 0,
-      "salmonPct": 0,
-      "creamPct": 0,
-      "cucumberPct": 0,
-      "salmonG": 0,
-      "pricePer100g": 105,
-      "weightRatio": null,
-      "scores": {
-        "rice": 5,
-        "seasoning": 3,
-        "salmon": 9,
-        "cream": 5,
-        "cucumber": 3,
-        "balance": 2,
-        "taste": 6,
-        "addons": 3,
-        "b_honesty": null,
-        "b_salmon": 1,
-        "packaging": 8,
-        "orderConvenience": 4,
-        "service": 3,
-        "wait": 5
-      },
-      "categories": {
-        "A_taste": 33,
-        "B_value": 1,
-        "C_completeness": 3,
-        "D_service": 12,
-        "E_delivery": 8
-      },
-      "waitTime": "5 хв",
-      "pros": "Дофіга рису, мало риби",
-      "cons": null,
-      "score": 57,
-      "incomplete": false,
-      "deliveryMin": "500",
-      "deliveryFee": "20/80",
-      "deliveryFreeFrom": "—",
-      "deliveryNote": null,
-      "stability": null
-    },
-    {
-      "id": 35,
       "name": "Verona sushi&pizza",
       "date": "28.05.2026",
       "menu": "https://verona-sushi-pizza.choiceqr.com/",
@@ -1927,7 +1872,7 @@
       "stability": null
     },
     {
-      "id": 36,
+      "id": 35,
       "name": "Chili Pizza",
       "date": "15.07.2026",
       "menu": "https://chili-pizza2.choiceqr.com/",
@@ -1982,7 +1927,7 @@
       "stability": null
     },
     {
-      "id": 37,
+      "id": 36,
       "name": "Піца Паляниця",
       "date": "16.07.2026",
       "menu": "https://palyanicahm.ps.me/",
@@ -2037,7 +1982,7 @@
       "stability": null
     },
     {
-      "id": 38,
+      "id": 37,
       "name": "Сусіди",
       "date": "07.07.2026",
       "menu": "https://susidy.cafe/",
@@ -2092,7 +2037,7 @@
       "stability": null
     },
     {
-      "id": 39,
+      "id": 38,
       "name": "З'їв би сам",
       "date": "06.07.2026",
       "menu": "https://zivbysam.ua/",
@@ -2147,7 +2092,7 @@
       "stability": null
     },
     {
-      "id": 40,
+      "id": 39,
       "name": "Суші босс",
       "date": "16.07.2026",
       "menu": "https://khmelnytskyi.sushiboss.od.ua/",
@@ -2202,7 +2147,7 @@
       "stability": null
     },
     {
-      "id": 41,
+      "id": 40,
       "name": "Fire Sushi",
       "date": "06.06.2026",
       "menu": "https://khmelnytskyi.firesushi.com.ua/",
@@ -2255,6 +2200,61 @@
       "deliveryFreeFrom": null,
       "deliveryNote": null,
       "stability": null
+    },
+    {
+      "id": 41,
+      "name": "Mia Sushi",
+      "date": "25.08.2026",
+      "menu": "https://khmelnytskyi.miasushi.com/",
+      "type": "Піца + Суші",
+      "category": "Середній",
+      "recommend": "Ні",
+      "order": "Філадельфія",
+      "price": 299,
+      "priceDiscount": 273.5,
+      "declaredWeight": 260,
+      "actualWeight": 226,
+      "rollWeight": 28.25,
+      "ricePct": 50,
+      "salmonPct": 11,
+      "creamPct": 25,
+      "cucumberPct": 7,
+      "salmonG": 24,
+      "pricePer100g": 121,
+      "weightRatio": 0.869,
+      "scores": {
+        "rice": 3,
+        "seasoning": 2,
+        "salmon": 4,
+        "cream": 5,
+        "cucumber": 3,
+        "balance": 2,
+        "taste": 4,
+        "addons": 4,
+        "b_honesty": 2,
+        "b_salmon": 2,
+        "packaging": 7,
+        "orderConvenience": 4,
+        "service": 3,
+        "wait": 5
+      },
+      "categories": {
+        "A_taste": 23,
+        "B_value": 4,
+        "C_completeness": 4,
+        "D_service": 12,
+        "E_delivery": 7
+      },
+      "waitTime": "15 хв",
+      "pros": "Роли маленьку, плюс з зявлених 260 грам є лише 226. Лосось слабосолений, солений більше неж хотілося б. Рис добре зварений але збитий, це важко жувати та ковтати, заправка мінімальна, ледь відчутна. Крем сир якісний, густий, вершковий смак не виражений. Огірок свіжий але його мало, біля одного грама. Роли нерівномірно порізані та начинка нерівномірно розподілена, десь дуже багато рису і мало начинки, десь більше начинки менше рису.",
+      "cons": null,
+      "score": 50,
+      "incomplete": false,
+      "deliveryMin": "500",
+      "deliveryFee": "20/80",
+      "deliveryFreeFrom": "—",
+      "deliveryNote": null,
+      "stability": "Висока"
     },
     {
       "id": 42,
