@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-25",
+  "lastUpdated": "2026-08-29",
   "places": [
     {
       "id": 1,
@@ -553,6 +553,61 @@
     },
     {
       "id": 11,
+      "name": "Toretto",
+      "date": "29.08.2026",
+      "menu": "https://toretto.com.ua/menu/",
+      "type": "Ресторан / Кафе",
+      "category": "Вище середнього",
+      "recommend": "Можна спробувати",
+      "order": "Філадельфія класична",
+      "price": 330,
+      "priceDiscount": 340,
+      "declaredWeight": 310,
+      "actualWeight": 305,
+      "rollWeight": 38,
+      "ricePct": 45,
+      "salmonPct": 21,
+      "creamPct": 18,
+      "cucumberPct": 13,
+      "salmonG": 64,
+      "pricePer100g": 111,
+      "weightRatio": 0.984,
+      "scores": {
+        "rice": 4,
+        "seasoning": 3,
+        "salmon": 6,
+        "cream": 5,
+        "cucumber": 3,
+        "balance": 10,
+        "taste": 7,
+        "addons": 4,
+        "b_honesty": 8,
+        "b_salmon": 6,
+        "packaging": 10,
+        "orderConvenience": 3,
+        "service": 4,
+        "wait": 5
+      },
+      "categories": {
+        "A_taste": 38,
+        "B_value": 14,
+        "C_completeness": 4,
+        "D_service": 12,
+        "E_delivery": 10
+      },
+      "waitTime": "10 хв",
+      "pros": "Гарні роли, якісно упаковані. Рис доре зварений, в заправці трохи переважає кислинка, що не ідеально. Лось досить якісний, жирний і його багато, але має не дуже виражений смак. Дуже смачний, густий крем сир з вираженим вершковим смаком. Огірок добре нарізаний, свіжий, хрумкий. Додатки якісні, соєвий соус не найкращий. В цілому через невиражений смак лосося, він губиться і часто домінує крем сир.",
+      "cons": null,
+      "score": 78,
+      "incomplete": false,
+      "deliveryMin": "—",
+      "deliveryFee": "100",
+      "deliveryFreeFrom": "800",
+      "deliveryNote": null,
+      "stability": "Висока"
+    },
+    {
+      "id": 12,
       "name": "Балу Піца та Суші",
       "date": "16.08.2026",
       "menu": "https://t.me/baloomenu",
@@ -607,7 +662,7 @@
       "stability": "Висока"
     },
     {
-      "id": 12,
+      "id": 13,
       "name": "Da Sushi",
       "date": "24.06.2026",
       "menu": "https://da-sushi.choiceqr.com/",
@@ -662,7 +717,7 @@
       "stability": null
     },
     {
-      "id": 13,
+      "id": 14,
       "name": "Sentrapol",
       "date": "11.06.2026",
       "menu": "https://sentrapol.choiceqr.com/",
@@ -717,7 +772,7 @@
       "stability": null
     },
     {
-      "id": 14,
+      "id": 15,
       "name": "Кухмістерська Хаселева",
       "date": "17.07.2026",
       "menu": "haseleva-khm.choiceqr.com/",
@@ -772,7 +827,7 @@
       "stability": null
     },
     {
-      "id": 15,
+      "id": 16,
       "name": "La П'єц",
       "date": "01.07.2026",
       "menu": "https://la.ua/khmelnytskyi/catalog/",
@@ -827,7 +882,7 @@
       "stability": null
     },
     {
-      "id": 16,
+      "id": 17,
       "name": "rollamore",
       "date": "22.06.2026",
       "menu": "https://menu.ps.me/nyU8S-e3gnY",
@@ -882,7 +937,7 @@
       "stability": null
     },
     {
-      "id": 17,
+      "id": 18,
       "name": "Суші-бар Tokio",
       "date": "16.07.2026",
       "menu": "https://tokio.co.ua",
@@ -937,7 +992,7 @@
       "stability": null
     },
     {
-      "id": 18,
+      "id": 19,
       "name": "Модзя",
       "date": "11.07.2026",
       "menu": "https://modzya.choiceqr.com/",
@@ -992,7 +1047,7 @@
       "stability": null
     },
     {
-      "id": 19,
+      "id": 20,
       "name": "Мамут",
       "date": "19.08.2026",
       "menu": "https://mamut-khm.choiceqr.com/",
@@ -1047,7 +1102,7 @@
       "stability": "Середня"
     },
     {
-      "id": 20,
+      "id": 21,
       "name": "Простір",
       "date": "03.07.2026",
       "menu": "https://prostir-kh.choiceqr.com/",
@@ -1102,7 +1157,7 @@
       "stability": null
     },
     {
-      "id": 21,
+      "id": 22,
       "name": "Все для суші",
       "date": "18.06.2026",
       "menu": "https://sushik.km.ua/",
@@ -1157,7 +1212,7 @@
       "stability": "Висока"
     },
     {
-      "id": 22,
+      "id": 23,
       "name": "Авокадо Суші-бар",
       "date": "21.06.2026",
       "menu": "https://avokado.km.ua/",
@@ -1212,7 +1267,7 @@
       "stability": null
     },
     {
-      "id": 23,
+      "id": 24,
       "name": "Бамбук",
       "date": "20.07.2026",
       "menu": "https://bambuk81.choiceqr.com/",
@@ -1267,7 +1322,7 @@
       "stability": "Середня"
     },
     {
-      "id": 24,
+      "id": 25,
       "name": "Atlant Pizza",
       "date": "04.06.2026",
       "menu": "https://atlantpizza.choiceqr.com/",
@@ -1322,7 +1377,7 @@
       "stability": null
     },
     {
-      "id": 25,
+      "id": 26,
       "name": "Pizza 57",
       "date": "23.06.2026",
       "menu": "https://pizza57.choiceqr.com/",
@@ -1373,61 +1428,6 @@
       "deliveryMin": "300",
       "deliveryFee": "50/70/90/130",
       "deliveryFreeFrom": "—",
-      "deliveryNote": null,
-      "stability": null
-    },
-    {
-      "id": 26,
-      "name": "Toretto",
-      "date": "24.05.2026",
-      "menu": "https://toretto.com.ua/menu/",
-      "type": "Ресторан / Кафе",
-      "category": "Вище середнього",
-      "recommend": "Так",
-      "order": "Філадельфія класична",
-      "price": 330,
-      "priceDiscount": 340,
-      "declaredWeight": 310,
-      "actualWeight": null,
-      "rollWeight": 37,
-      "ricePct": 0,
-      "salmonPct": 0,
-      "creamPct": 0,
-      "cucumberPct": 0,
-      "salmonG": 0,
-      "pricePer100g": 110,
-      "weightRatio": null,
-      "scores": {
-        "rice": 5,
-        "seasoning": 3,
-        "salmon": 9,
-        "cream": 5,
-        "cucumber": 3,
-        "balance": 2,
-        "taste": 8,
-        "addons": 4,
-        "b_honesty": null,
-        "b_salmon": 1,
-        "packaging": 10,
-        "orderConvenience": 3,
-        "service": 3,
-        "wait": 5
-      },
-      "categories": {
-        "A_taste": 35,
-        "B_value": 1,
-        "C_completeness": 4,
-        "D_service": 11,
-        "E_delivery": 10
-      },
-      "waitTime": "10 хв",
-      "pros": "Багато риби,непогані на смак, трохи не тримають форму (можливо через спеку)",
-      "cons": null,
-      "score": 61,
-      "incomplete": false,
-      "deliveryMin": "—",
-      "deliveryFee": "100",
-      "deliveryFreeFrom": "800",
       "deliveryNote": null,
       "stability": null
     },
