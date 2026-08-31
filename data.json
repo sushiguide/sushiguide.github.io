@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-29",
+  "lastUpdated": "2026-08-31",
   "places": [
     {
       "id": 1,
@@ -993,6 +993,61 @@
     },
     {
       "id": 19,
+      "name": "Verona sushi&pizza",
+      "date": "31.08.2026",
+      "menu": "https://veronasushi.com.ua/",
+      "type": "Піца + Суші",
+      "category": "Вище середнього",
+      "recommend": "Можна спробувати",
+      "order": "Філадельфія",
+      "price": 310,
+      "priceDiscount": 310,
+      "declaredWeight": 275,
+      "actualWeight": 262,
+      "rollWeight": 32.75,
+      "ricePct": 52,
+      "salmonPct": 18,
+      "creamPct": 18,
+      "cucumberPct": 12,
+      "salmonG": 48,
+      "pricePer100g": 118,
+      "weightRatio": 0.953,
+      "scores": {
+        "rice": 4,
+        "seasoning": 3,
+        "salmon": 5,
+        "cream": 5,
+        "cucumber": 4,
+        "balance": 6,
+        "taste": 7,
+        "addons": 3,
+        "b_honesty": 6,
+        "b_salmon": 4,
+        "packaging": 9,
+        "orderConvenience": 5,
+        "service": 3,
+        "wait": 5
+      },
+      "categories": {
+        "A_taste": 34,
+        "B_value": 10,
+        "C_completeness": 3,
+        "D_service": 13,
+        "E_delivery": 9
+      },
+      "waitTime": "10 хв",
+      "pros": "Гарні на вигляд, рівно порізані роли. Рис зварений на грані недовареного, інколи натяк на твердий, заправка середня. Лосось слабосолений і дуже солений, хоча його й немало. Крем-сир непоганої якості, не має сильно вираженого смаку. Замість огірка - авокадо, свіже та смачне. Загальне враження про роли неоднозначне, загалом смак непоганий, але не інгредієнти зливаються і втрачають смак, навіть солений лосось не завжди чути, особливо якщо їсти з соєвим соусом, який не найсмачніший.",
+      "cons": null,
+      "score": 69,
+      "incomplete": false,
+      "deliveryMin": "—",
+      "deliveryFee": "100/250",
+      "deliveryFreeFrom": "800",
+      "deliveryNote": null,
+      "stability": "Висока"
+    },
+    {
+      "id": 20,
       "name": "Модзя",
       "date": "11.07.2026",
       "menu": "https://modzya.choiceqr.com/",
@@ -1047,7 +1102,7 @@
       "stability": null
     },
     {
-      "id": 20,
+      "id": 21,
       "name": "Мамут",
       "date": "19.08.2026",
       "menu": "https://mamut-khm.choiceqr.com/",
@@ -1102,7 +1157,7 @@
       "stability": "Середня"
     },
     {
-      "id": 21,
+      "id": 22,
       "name": "Простір",
       "date": "03.07.2026",
       "menu": "https://prostir-kh.choiceqr.com/",
@@ -1157,7 +1212,7 @@
       "stability": null
     },
     {
-      "id": 22,
+      "id": 23,
       "name": "Все для суші",
       "date": "18.06.2026",
       "menu": "https://sushik.km.ua/",
@@ -1212,7 +1267,7 @@
       "stability": "Висока"
     },
     {
-      "id": 23,
+      "id": 24,
       "name": "Авокадо Суші-бар",
       "date": "21.06.2026",
       "menu": "https://avokado.km.ua/",
@@ -1267,7 +1322,7 @@
       "stability": null
     },
     {
-      "id": 24,
+      "id": 25,
       "name": "Бамбук",
       "date": "20.07.2026",
       "menu": "https://bambuk81.choiceqr.com/",
@@ -1322,7 +1377,7 @@
       "stability": "Середня"
     },
     {
-      "id": 25,
+      "id": 26,
       "name": "Atlant Pizza",
       "date": "04.06.2026",
       "menu": "https://atlantpizza.choiceqr.com/",
@@ -1377,7 +1432,7 @@
       "stability": null
     },
     {
-      "id": 26,
+      "id": 27,
       "name": "Pizza 57",
       "date": "23.06.2026",
       "menu": "https://pizza57.choiceqr.com/",
@@ -1432,7 +1487,7 @@
       "stability": null
     },
     {
-      "id": 27,
+      "id": 28,
       "name": "Мрія",
       "date": "29.05.2026",
       "menu": "https://pizza-mriya.choiceqr.com/",
@@ -1487,7 +1542,7 @@
       "stability": null
     },
     {
-      "id": 28,
+      "id": 29,
       "name": "Автор Суші",
       "date": "25.06.2026",
       "menu": "https://avtor.km.ua/",
@@ -1542,7 +1597,7 @@
       "stability": null
     },
     {
-      "id": 29,
+      "id": 30,
       "name": "Sushizoom",
       "date": "30.06.2026",
       "menu": "https://sushizoom.com/khmelnytskyi",
@@ -1597,7 +1652,7 @@
       "stability": null
     },
     {
-      "id": 30,
+      "id": 31,
       "name": "Pronto Pizza",
       "date": "12.08.2026",
       "menu": "https://prontopizza.ua/khmelnytskyi/",
@@ -1652,7 +1707,7 @@
       "stability": "Висока"
     },
     {
-      "id": 31,
+      "id": 32,
       "name": "Sushi Master",
       "date": "31.05.2026",
       "menu": "khmelnitskiy.sushi-master.ua",
@@ -1707,7 +1762,7 @@
       "stability": null
     },
     {
-      "id": 32,
+      "id": 33,
       "name": "Поїж суші",
       "date": "29.06.2026",
       "menu": "https://poyizh-sushi.choiceqr.com/",
@@ -1762,7 +1817,7 @@
       "stability": null
     },
     {
-      "id": 33,
+      "id": 34,
       "name": "Osama Sushi",
       "date": "08.07.2026",
       "menu": "https://osama.com.ua/",
@@ -1815,61 +1870,6 @@
       "deliveryFreeFrom": "600",
       "deliveryNote": null,
       "stability": "Висока"
-    },
-    {
-      "id": 34,
-      "name": "Verona sushi&pizza",
-      "date": "28.05.2026",
-      "menu": "https://verona-sushi-pizza.choiceqr.com/",
-      "type": "Піца + Суші",
-      "category": "Вище середнього",
-      "recommend": "Ні",
-      "order": "Філадельфія",
-      "price": 310,
-      "priceDiscount": 310,
-      "declaredWeight": 275,
-      "actualWeight": null,
-      "rollWeight": 35,
-      "ricePct": 0,
-      "salmonPct": 9,
-      "creamPct": 0,
-      "cucumberPct": 0,
-      "salmonG": 24,
-      "pricePer100g": 113,
-      "weightRatio": null,
-      "scores": {
-        "rice": 5,
-        "seasoning": 3,
-        "salmon": 5,
-        "cream": 5,
-        "cucumber": 4,
-        "balance": 2,
-        "taste": 6,
-        "addons": 3,
-        "b_honesty": null,
-        "b_salmon": 1,
-        "packaging": 9,
-        "orderConvenience": 5,
-        "service": 3,
-        "wait": 5
-      },
-      "categories": {
-        "A_taste": 30,
-        "B_value": 1,
-        "C_completeness": 3,
-        "D_service": 13,
-        "E_delivery": 9
-      },
-      "waitTime": "10 хв",
-      "pros": "Багато рису, солений лосось",
-      "cons": null,
-      "score": 56,
-      "incomplete": false,
-      "deliveryMin": "—",
-      "deliveryFee": "100/250",
-      "deliveryFreeFrom": "800",
-      "deliveryNote": null,
-      "stability": null
     },
     {
       "id": 35,
