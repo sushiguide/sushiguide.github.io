@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-31",
+  "lastUpdated": "2026-09-03",
   "places": [
     {
       "id": 1,
@@ -175,8 +175,8 @@
       "category": "Середній",
       "recommend": "Так",
       "order": "Філадельфія Лосось",
-      "price": 260,
-      "priceDiscount": 255,
+      "price": 280,
+      "priceDiscount": 280,
       "declaredWeight": 280,
       "actualWeight": 300,
       "rollWeight": 37,
@@ -185,7 +185,7 @@
       "creamPct": 20,
       "cucumberPct": 15,
       "salmonG": 72,
-      "pricePer100g": 85,
+      "pricePer100g": 93,
       "weightRatio": 1.071,
       "scores": {
         "rice": 5,
@@ -1494,7 +1494,7 @@
       "type": "Ресторан / Кафе",
       "category": "Преміум",
       "recommend": "Можна спробувати",
-      "order": "Філадельфія з лососем",
+      "order": "Філадельфія",
       "price": 368,
       "priceDiscount": 326.2,
       "declaredWeight": 260,
