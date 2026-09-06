@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-03",
+  "lastUpdated": "2026-09-06",
   "places": [
     {
       "id": 1,
@@ -118,7 +118,7 @@
       "menu": "https://bilsheryby.com.ua/#menu",
       "type": "Суші",
       "category": "Вище середнього",
-      "recommend": "Ні",
+      "recommend": "Так",
       "order": "Філадельфія де люкс класична",
       "price": 329,
       "priceDiscount": 312,
