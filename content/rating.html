@@ -2,22 +2,22 @@
 <div class="sticky top-0 z-20 bg-white/95 backdrop-blur border-b">
   <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap gap-2 items-center">
     <select id="filterRec" class="px-3 py-2 text-sm border rounded-lg bg-white">
-      <option value="">Всі рекомендації</option>
-      <option value="Так">Рекомендую</option>
-      <option value="Можна спробувати">Можна спробувати</option>
-      <option value="Ні">Не рекомендую</option>
+      <option value="" data-i18n="allRec">Всі рекомендації</option>
+      <option value="Так" data-i18n="recYes">Рекомендую</option>
+      <option value="Можна спробувати" data-i18n="recMaybe">Можна спробувати</option>
+      <option value="Ні" data-i18n="recNo">Не рекомендую</option>
     </select>
     <select id="filterCat" class="px-3 py-2 text-sm border rounded-lg bg-white">
-      <option value="">Всі категорії</option>
-      <option value="Преміум">Преміум</option>
-      <option value="Вище середнього">Вище середнього</option>
-      <option value="Середній">Середній</option>
-      <option value="Бюджет">Бюджет</option>
+      <option value="" data-i18n="allCat">Всі категорії</option>
+      <option value="Преміум" data-i18n="catPremium">Преміум</option>
+      <option value="Вище середнього" data-i18n="catAbove">Вище середнього</option>
+      <option value="Середній" data-i18n="catMid">Середній</option>
+      <option value="Бюджет" data-i18n="catBudget">Бюджет</option>
     </select>
     <select id="sortBy" class="px-3 py-2 text-sm border rounded-lg bg-white">
-      <option value="score">За оцінкою</option>
-      <option value="name">За назвою</option>
-      <option value="price">За ціною</option>
+      <option value="score" data-i18n="sortScore">За оцінкою</option>
+      <option value="name" data-i18n="sortName">За назвою</option>
+      <option value="price" data-i18n="sortPrice">За ціною</option>
     </select>
   </div>
 </div>
@@ -25,7 +25,7 @@
 <main class="max-w-6xl mx-auto px-4 py-6">
   <div class="flex justify-between items-center mb-4 text-sm text-zinc-500">
     <span id="countLabel">Завантаження...</span>
-    <span class="text-xs">Оцінка за 5 категоріями</span>
+    <span class="text-xs" data-i18n="fiveCats">Оцінка за 5 категоріями</span>
   </div>
   <div id="grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
 </main>
