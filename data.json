@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-09",
+  "lastUpdated": "2026-09-13",
   "places": [
     {
       "id": 1,
@@ -1759,7 +1759,7 @@
       "deliveryFee": "90",
       "deliveryFreeFrom": "600",
       "deliveryNote": null,
-      "stability": "Висока"
+      "stability": "Середня"
     },
     {
       "id": 33,
