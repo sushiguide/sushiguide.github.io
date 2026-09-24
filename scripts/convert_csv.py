@@ -1,29 +1,34 @@
 #!/usr/bin/env python3
-"""
-Convert published Google Sheets CSV → data.json for Sushi Guide.
-v2.0 scoring + delivery fields + stability + lastUpdated + incomplete flag.
-"""
+"""Convert Google Sheets CSV to public data.json. Only final score + consumer fields."""
 
 import csv
 import json
+import os
 import re
 import urllib.request
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
-CSV_URL = (
+CSV_URL = os.environ.get("SUSHIGUIDE_CSV_URL") or (
     "https://docs.google.com/spreadsheets/d/e/"
     "2PACX-1vSZjm-0R6UpsrGm9IYop8q5yykjy8V6QdL_-rKmkxE6LJsEK5gT6JcWUKVrtA3RntdClDWbuW4hqgSy/"
     "pub?gid=0&single=true&output=csv"
 )
 OUT_PATH = Path("data.json")
 
+# Manual status until the sheet has a filled «Статус» column.
+# Values: "closed" | "temporary"
+STATUS_OVERRIDES = {
+    # "Назва закладу": "closed",
+}
+
 
 def parse_num(val):
     if val is None:
         return None
     s = str(val).strip().replace(" ", "").replace("\xa0", "")
-    if s in ("", "N/A", "n/a", "#DIV/0!", "#REF!", "#VALUE!", "-", "—", "–"):
+    if s in ("", "N/A", "n/a", "#DIV/0!", "#REF!", "#VALUE!", "-", "\u2014", "\u2013"):
         return None
     s = s.replace(",", ".")
     try:
@@ -33,7 +38,6 @@ def parse_num(val):
 
 
 def delivery_str(val):
-    """Keep delivery fields as display strings (—, N/A, 50/100, 1500)."""
     if val is None:
         return None
     s = str(val).strip().replace("\xa0", " ")
@@ -96,6 +100,24 @@ def clean(v):
     return v
 
 
+def parse_status(row):
+    raw = row.get("Статус") or row.get("Стан") or row.get("Status") or ""
+    s = str(raw).strip().lower()
+    if s in ("закритий", "закрито", "closed", "не працює"):
+        return "closed"
+    if s in (
+        "тимчасово закритий",
+        "тимчасово закрито",
+        "тимчасово",
+        "temporary",
+        "temp",
+        "pause",
+        "на паузі",
+    ):
+        return "temporary"
+    return "open"
+
+
 def fetch_csv(url: str) -> list:
     req = urllib.request.Request(
         url,
@@ -118,12 +140,7 @@ def convert(rows: list) -> list:
         price_discount = parse_num(row.get("Ціна зі знижкою"))
         declared = parse_num(row.get("Вага"))
         actual = parse_num(row.get("Фактична вага"))
-        roll_weight = parse_num(row.get("~Вага рола"))
-        rice_pct = pct_norm(parse_num(row.get("% Рису")))
         salmon_pct = pct_norm(parse_num(row.get("% Лосося")))
-        cream_pct = pct_norm(parse_num(row.get("% Крем-сиру")))
-        cucumber_pct = pct_norm(parse_num(row.get("% Огірка")))
-        salmon_g = parse_num(row.get("~Кількість лосося"))
 
         rice = parse_num(row.get("Рис (1-6)"))
         seasoning = parse_num(row.get("Заправка  (1-4)"))
@@ -150,80 +167,30 @@ def convert(rows: list) -> list:
         b_vals = [x for x in (b_honesty, b_salmon) if x is not None]
         b_value = sum(b_vals) if b_vals else None
 
-        c_completeness = addons
-        d_vals = [x for x in (wait, service, order_conv) if x is not None]
-        d_service = sum(d_vals) if d_vals else None
-        e_delivery = packaging
-
         cats = {
             "A_taste": a_taste,
             "B_value": b_value,
-            "C_completeness": c_completeness,
-            "D_service": d_service,
-            "E_delivery": e_delivery,
+            "C_completeness": addons,
+            "D_service": sum(x for x in (wait, service, order_conv) if x is not None) if any(x is not None for x in (wait, service, order_conv)) else None,
+            "E_delivery": packaging,
         }
         available = [v for v in cats.values() if v is not None]
         incomplete = any(v is None for v in cats.values())
         total = int(round(sum(available))) if available else None
 
-        price_per_100g = None
-        sheet_p100 = parse_num(row.get("Ціна/грам"))
-        if sheet_p100 is not None and sheet_p100 < 10:
-            price_per_100g = round(sheet_p100 * 100, 1)
-        elif sheet_p100 is not None:
-            price_per_100g = round(sheet_p100, 1)
-        elif price and actual:
-            price_per_100g = round(price / actual * 100, 1)
-        elif price and declared:
-            price_per_100g = round(price / declared * 100, 1)
-
-        weight_ratio = None
-        if actual and declared and declared > 0:
-            weight_ratio = round(actual / declared, 3)
-
         place = {
             "id": 0,
             "name": name,
-            "date": (row.get("Дата") or "").strip() or None,
             "menu": (row.get("Меню") or "").strip() or None,
             "type": (row.get("Тип закладу") or "").strip() or None,
             "category": (row.get("Категорія") or "").strip() or None,
             "recommend": (row.get("Рекомендую") or "").strip() or None,
-            "order": (row.get("Замовлення") or "").strip() or None,
             "price": clean(price),
             "priceDiscount": clean(price_discount),
-            "declaredWeight": clean(declared),
-            "actualWeight": clean(actual),
-            "rollWeight": clean(roll_weight),
-            "ricePct": clean(rice_pct),
-            "salmonPct": clean(salmon_pct),
-            "creamPct": clean(cream_pct),
-            "cucumberPct": clean(cucumber_pct),
-            "salmonG": clean(salmon_g),
-            "pricePer100g": clean(price_per_100g),
-            "weightRatio": weight_ratio,
-            "scores": {
-                "rice": clean(rice),
-                "seasoning": clean(seasoning),
-                "salmon": clean(salmon_q),
-                "cream": clean(cream),
-                "cucumber": clean(cucumber),
-                "balance": clean(balance),
-                "taste": clean(taste),
-                "addons": clean(addons),
-                "b_honesty": b_honesty,
-                "b_salmon": b_salmon,
-                "packaging": clean(packaging),
-                "orderConvenience": clean(order_conv),
-                "service": clean(service),
-                "wait": clean(wait),
-            },
             "categories": {k: clean(v) for k, v in cats.items()},
-            "waitTime": (row.get("Час очікування") or "").strip() or None,
-            "pros": (row.get("Плюси") or "").strip() or None,
-            "cons": (row.get("Мінуси") or "").strip() or None,
             "score": total,
             "incomplete": incomplete,
+            "status": STATUS_OVERRIDES.get(name) or parse_status(row),
             "deliveryMin": delivery_str(row.get("Мін. сума замовлення")),
             "deliveryFee": delivery_str(row.get("Доставка (Ціна)")),
             "deliveryFreeFrom": delivery_str(row.get("Безкоштовно від")),
@@ -248,13 +215,12 @@ def main():
     print(f"With score: {sum(1 for p in places if p['score'] is not None)}")
     print(f"Incomplete: {sum(1 for p in places if p.get('incomplete'))}")
     print(f"With delivery fee: {sum(1 for p in places if p.get('deliveryFee'))}")
+    print(f"Status: {dict(Counter(p.get('status') or 'open' for p in places))}")
 
     if places:
         top = places[0]
         print(f"Top: {top['score']}  {top['name']}  fee={top.get('deliveryFee')}")
 
-    # Only bump lastUpdated when place data actually changes.
-    # Otherwise nightly Action would rewrite the date every day and always commit.
     last_updated = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     prev_updated = None
     data_changed = True
@@ -277,15 +243,8 @@ def main():
         except Exception as e:
             print(f"Could not compare with existing data.json: {e}")
 
-    payload = {
-        "lastUpdated": last_updated,
-        "places": places,
-    }
-
-    OUT_PATH.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    payload = {"lastUpdated": last_updated, "places": places}
+    OUT_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     status = "CHANGED" if data_changed else "unchanged (date kept)"
     print(f"Wrote {OUT_PATH} ({OUT_PATH.stat().st_size} bytes), lastUpdated={last_updated}, data={status}")
 
