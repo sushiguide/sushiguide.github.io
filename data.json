@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-31",
+  "lastUpdated": "2026-11-06",
   "places": [
     {
       "id": 1,
@@ -1086,13 +1086,13 @@
       "price": 280,
       "priceDiscount": 280,
       "categories": {
-        "A_taste": 0,
-        "B_value": 10,
+        "A_taste": 2,
+        "B_value": 3,
         "C_completeness": 0,
         "D_service": 0,
         "E_delivery": 0
       },
-      "score": 10,
+      "score": 5,
       "incomplete": false,
       "status": "open",
       "deliveryMin": "—",
