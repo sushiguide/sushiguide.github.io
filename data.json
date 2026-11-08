@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-06",
+  "lastUpdated": "2026-11-08",
   "places": [
     {
       "id": 1,
@@ -678,6 +678,31 @@
     },
     {
       "id": 28,
+      "name": "Yamato",
+      "menu": "https://yamato.in.ua/",
+      "type": "Суші",
+      "category": "Середній",
+      "recommend": "Так",
+      "price": 280,
+      "priceDiscount": 280,
+      "categories": {
+        "A_taste": 33,
+        "B_value": 6,
+        "C_completeness": 3,
+        "D_service": 12,
+        "E_delivery": 8
+      },
+      "score": 62,
+      "incomplete": false,
+      "status": "open",
+      "deliveryMin": "—",
+      "deliveryFee": "90",
+      "deliveryFreeFrom": "—",
+      "deliveryNote": null,
+      "stability": null
+    },
+    {
+      "id": 29,
       "name": "Мрія",
       "menu": "https://pizza-mriya.choiceqr.com/",
       "type": "Ресторан / Кафе",
@@ -702,7 +727,7 @@
       "stability": null
     },
     {
-      "id": 29,
+      "id": 30,
       "name": "Sushizoom",
       "menu": "https://sushizoom.com/khmelnytskyi",
       "type": "Суші",
@@ -727,7 +752,7 @@
       "stability": null
     },
     {
-      "id": 30,
+      "id": 31,
       "name": "Автор Суші",
       "menu": "https://avtor.km.ua/",
       "type": "Суші",
@@ -752,7 +777,7 @@
       "stability": null
     },
     {
-      "id": 31,
+      "id": 32,
       "name": "Pronto Pizza",
       "menu": "https://prontopizza.ua/khmelnytskyi/",
       "type": "Піца + Суші",
@@ -777,7 +802,7 @@
       "stability": "Висока"
     },
     {
-      "id": 32,
+      "id": 33,
       "name": "Поїж суші",
       "menu": "https://poyizh-sushi.choiceqr.com/",
       "type": "Суші",
@@ -802,7 +827,7 @@
       "stability": null
     },
     {
-      "id": 33,
+      "id": 34,
       "name": "Sushi Master",
       "menu": "khmelnitskiy.sushi-master.ua",
       "type": "Суші",
@@ -827,7 +852,7 @@
       "stability": null
     },
     {
-      "id": 34,
+      "id": 35,
       "name": "Osama Sushi",
       "menu": "https://osama.com.ua/",
       "type": "Суші",
@@ -852,7 +877,7 @@
       "stability": "Середня"
     },
     {
-      "id": 35,
+      "id": 36,
       "name": "Chili Pizza",
       "menu": "https://chili-pizza2.choiceqr.com/",
       "type": "Ресторан / Кафе",
@@ -877,7 +902,7 @@
       "stability": null
     },
     {
-      "id": 36,
+      "id": 37,
       "name": "Піца Паляниця",
       "menu": "https://palyanicahm.ps.me/",
       "type": "Піца + Суші",
@@ -902,7 +927,7 @@
       "stability": null
     },
     {
-      "id": 37,
+      "id": 38,
       "name": "Сусіди",
       "menu": "https://susidy.cafe/",
       "type": "Ресторан / Кафе",
@@ -927,7 +952,7 @@
       "stability": null
     },
     {
-      "id": 38,
+      "id": 39,
       "name": "З'їв би сам",
       "menu": "https://zivbysam.ua/",
       "type": "Піца + Суші",
@@ -952,7 +977,7 @@
       "stability": null
     },
     {
-      "id": 39,
+      "id": 40,
       "name": "Суші босс",
       "menu": "https://khmelnytskyi.sushiboss.od.ua/",
       "type": "Суші",
@@ -977,7 +1002,7 @@
       "stability": null
     },
     {
-      "id": 40,
+      "id": 41,
       "name": "Fire Sushi",
       "menu": "https://khmelnytskyi.firesushi.com.ua/",
       "type": "Піца + Суші",
@@ -1002,7 +1027,7 @@
       "stability": null
     },
     {
-      "id": 41,
+      "id": 42,
       "name": "Mia Sushi",
       "menu": "https://khmelnytskyi.miasushi.com/",
       "type": "Піца + Суші",
@@ -1027,7 +1052,7 @@
       "stability": "Висока"
     },
     {
-      "id": 42,
+      "id": 43,
       "name": "4iFan",
       "menu": "https://4ifan.choiceqr.com/",
       "type": "Азійський",
@@ -1052,7 +1077,7 @@
       "stability": null
     },
     {
-      "id": 43,
+      "id": 44,
       "name": "Лавр",
       "menu": "https://menu.ps.me/4vjaaTLuN5A/",
       "type": "Ресторан / Кафе",
@@ -1072,31 +1097,6 @@
       "status": "open",
       "deliveryMin": "—",
       "deliveryFee": "—",
-      "deliveryFreeFrom": "—",
-      "deliveryNote": null,
-      "stability": null
-    },
-    {
-      "id": 44,
-      "name": "Yamato",
-      "menu": "https://yamato.in.ua/",
-      "type": "Суші",
-      "category": "Середній",
-      "recommend": "Так",
-      "price": 280,
-      "priceDiscount": 280,
-      "categories": {
-        "A_taste": 2,
-        "B_value": 3,
-        "C_completeness": 0,
-        "D_service": 0,
-        "E_delivery": 0
-      },
-      "score": 5,
-      "incomplete": false,
-      "status": "open",
-      "deliveryMin": "—",
-      "deliveryFee": "90",
       "deliveryFreeFrom": "—",
       "deliveryNote": null,
       "stability": null
